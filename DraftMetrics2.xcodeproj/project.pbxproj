@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D16A80801CFF0E4D00C2EC89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A807F1CFF0E4D00C2EC89 /* AppDelegate.swift */; };
-		D16A80821CFF0E4D00C2EC89 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A80811CFF0E4D00C2EC89 /* FirstViewController.swift */; };
-		D16A80841CFF0E4D00C2EC89 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A80831CFF0E4D00C2EC89 /* SecondViewController.swift */; };
+		D16A80821CFF0E4D00C2EC89 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A80811CFF0E4D00C2EC89 /* MainPageViewController.swift */; };
+		D16A80841CFF0E4D00C2EC89 /* MyPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A80831CFF0E4D00C2EC89 /* MyPickViewController.swift */; };
 		D16A80871CFF0E4D00C2EC89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16A80851CFF0E4D00C2EC89 /* Main.storyboard */; };
 		D16A80891CFF0E4D00C2EC89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16A80881CFF0E4D00C2EC89 /* Assets.xcassets */; };
 		D16A808C1CFF0E4D00C2EC89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16A808A1CFF0E4D00C2EC89 /* LaunchScreen.storyboard */; };
@@ -18,8 +18,8 @@
 /* Begin PBXFileReference section */
 		D16A807C1CFF0E4D00C2EC89 /* DraftMetrics2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DraftMetrics2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16A807F1CFF0E4D00C2EC89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D16A80811CFF0E4D00C2EC89 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		D16A80831CFF0E4D00C2EC89 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D16A80811CFF0E4D00C2EC89 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		D16A80831CFF0E4D00C2EC89 /* MyPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPickViewController.swift; sourceTree = "<group>"; };
 		D16A80861CFF0E4D00C2EC89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D16A80881CFF0E4D00C2EC89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D16A808B1CFF0E4D00C2EC89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,8 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				D16A807F1CFF0E4D00C2EC89 /* AppDelegate.swift */,
-				D16A80811CFF0E4D00C2EC89 /* FirstViewController.swift */,
-				D16A80831CFF0E4D00C2EC89 /* SecondViewController.swift */,
+				D16A80811CFF0E4D00C2EC89 /* MainPageViewController.swift */,
+				D16A80831CFF0E4D00C2EC89 /* MyPickViewController.swift */,
 				D16A80851CFF0E4D00C2EC89 /* Main.storyboard */,
 				D16A80881CFF0E4D00C2EC89 /* Assets.xcassets */,
 				D16A808A1CFF0E4D00C2EC89 /* LaunchScreen.storyboard */,
@@ -138,9 +138,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D16A80841CFF0E4D00C2EC89 /* SecondViewController.swift in Sources */,
+				D16A80841CFF0E4D00C2EC89 /* MyPickViewController.swift in Sources */,
 				D16A80801CFF0E4D00C2EC89 /* AppDelegate.swift in Sources */,
-				D16A80821CFF0E4D00C2EC89 /* FirstViewController.swift in Sources */,
+				D16A80821CFF0E4D00C2EC89 /* MainPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

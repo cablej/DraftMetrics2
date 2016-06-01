@@ -8,11 +8,15 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class MainPageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //self.navigationController?.navigationBar.barTintColor = UIColor(red: 216, green: 0, blue: 21, alpha: 1)
+    
+//        UINavigationBar.appearance().
+        
     }
 
     override func didReceiveMemoryWarning() {
