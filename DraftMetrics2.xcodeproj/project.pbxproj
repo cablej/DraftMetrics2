@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D148CD971D0061C10047E559 /* DraftMetricsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148CD961D0061C10047E559 /* DraftMetricsHelper.swift */; };
+		D148CD991D0062180047E559 /* DraftHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148CD981D0062180047E559 /* DraftHistoryViewController.swift */; };
+		D148CD9B1D00624E0047E559 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148CD9A1D00624E0047E559 /* SettingsViewController.swift */; };
+		D148CDAC1D0064430047E559 /* Arvo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D148CD9F1D0064430047E559 /* Arvo-Regular.ttf */; };
+		D148CDAD1D0064430047E559 /* Arvo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D148CDA11D0064430047E559 /* Arvo-Bold.ttf */; };
+		D148CDAE1D0064430047E559 /* Arvo-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D148CDA31D0064430047E559 /* Arvo-BoldItalic.ttf */; };
+		D148CDAF1D0064430047E559 /* Arvo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D148CDA51D0064430047E559 /* Arvo-Italic.ttf */; };
+		D148CDB01D0064430047E559 /* Monda-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D148CDA71D0064430047E559 /* Monda-Bold.ttf */; };
+		D148CDB11D0064430047E559 /* Monda-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D148CDA91D0064430047E559 /* Monda-Light.ttf */; };
+		D148CDB21D0064430047E559 /* Monda-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D148CDAB1D0064430047E559 /* Monda-Regular.ttf */; };
+		D148CDB41D0068AB0047E559 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148CDB31D0068AB0047E559 /* PlayerCell.swift */; };
 		D16A80801CFF0E4D00C2EC89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A807F1CFF0E4D00C2EC89 /* AppDelegate.swift */; };
 		D16A80821CFF0E4D00C2EC89 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A80811CFF0E4D00C2EC89 /* MainPageViewController.swift */; };
 		D16A80841CFF0E4D00C2EC89 /* MyPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A80831CFF0E4D00C2EC89 /* MyPickViewController.swift */; };
@@ -16,6 +27,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D148CD961D0061C10047E559 /* DraftMetricsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftMetricsHelper.swift; sourceTree = "<group>"; };
+		D148CD981D0062180047E559 /* DraftHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftHistoryViewController.swift; sourceTree = "<group>"; };
+		D148CD9A1D00624E0047E559 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D148CD9F1D0064430047E559 /* Arvo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arvo-Regular.ttf"; sourceTree = "<group>"; };
+		D148CDA11D0064430047E559 /* Arvo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arvo-Bold.ttf"; sourceTree = "<group>"; };
+		D148CDA31D0064430047E559 /* Arvo-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arvo-BoldItalic.ttf"; sourceTree = "<group>"; };
+		D148CDA51D0064430047E559 /* Arvo-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arvo-Italic.ttf"; sourceTree = "<group>"; };
+		D148CDA71D0064430047E559 /* Monda-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Monda-Bold.ttf"; sourceTree = "<group>"; };
+		D148CDA91D0064430047E559 /* Monda-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Monda-Light.ttf"; sourceTree = "<group>"; };
+		D148CDAB1D0064430047E559 /* Monda-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Monda-Regular.ttf"; sourceTree = "<group>"; };
+		D148CDB31D0068AB0047E559 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		D16A807C1CFF0E4D00C2EC89 /* DraftMetrics2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DraftMetrics2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16A807F1CFF0E4D00C2EC89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16A80811CFF0E4D00C2EC89 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +59,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D148CD9D1D0064430047E559 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D148CD9E1D0064430047E559 /* Arvo */,
+				D148CDA01D0064430047E559 /* Arvo Bold */,
+				D148CDA21D0064430047E559 /* Arvo Bold Italic */,
+				D148CDA41D0064430047E559 /* Arvo Italic */,
+				D148CDA61D0064430047E559 /* Monda Bold */,
+				D148CDA81D0064430047E559 /* Monda Light */,
+				D148CDAA1D0064430047E559 /* Monda Regular */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D148CD9E1D0064430047E559 /* Arvo */ = {
+			isa = PBXGroup;
+			children = (
+				D148CD9F1D0064430047E559 /* Arvo-Regular.ttf */,
+			);
+			path = Arvo;
+			sourceTree = "<group>";
+		};
+		D148CDA01D0064430047E559 /* Arvo Bold */ = {
+			isa = PBXGroup;
+			children = (
+				D148CDA11D0064430047E559 /* Arvo-Bold.ttf */,
+			);
+			path = "Arvo Bold";
+			sourceTree = "<group>";
+		};
+		D148CDA21D0064430047E559 /* Arvo Bold Italic */ = {
+			isa = PBXGroup;
+			children = (
+				D148CDA31D0064430047E559 /* Arvo-BoldItalic.ttf */,
+			);
+			path = "Arvo Bold Italic";
+			sourceTree = "<group>";
+		};
+		D148CDA41D0064430047E559 /* Arvo Italic */ = {
+			isa = PBXGroup;
+			children = (
+				D148CDA51D0064430047E559 /* Arvo-Italic.ttf */,
+			);
+			path = "Arvo Italic";
+			sourceTree = "<group>";
+		};
+		D148CDA61D0064430047E559 /* Monda Bold */ = {
+			isa = PBXGroup;
+			children = (
+				D148CDA71D0064430047E559 /* Monda-Bold.ttf */,
+			);
+			path = "Monda Bold";
+			sourceTree = "<group>";
+		};
+		D148CDA81D0064430047E559 /* Monda Light */ = {
+			isa = PBXGroup;
+			children = (
+				D148CDA91D0064430047E559 /* Monda-Light.ttf */,
+			);
+			path = "Monda Light";
+			sourceTree = "<group>";
+		};
+		D148CDAA1D0064430047E559 /* Monda Regular */ = {
+			isa = PBXGroup;
+			children = (
+				D148CDAB1D0064430047E559 /* Monda-Regular.ttf */,
+			);
+			path = "Monda Regular";
+			sourceTree = "<group>";
+		};
 		D16A80731CFF0E4D00C2EC89 = {
 			isa = PBXGroup;
 			children = (
@@ -59,10 +151,15 @@
 				D16A807F1CFF0E4D00C2EC89 /* AppDelegate.swift */,
 				D16A80811CFF0E4D00C2EC89 /* MainPageViewController.swift */,
 				D16A80831CFF0E4D00C2EC89 /* MyPickViewController.swift */,
+				D148CD981D0062180047E559 /* DraftHistoryViewController.swift */,
+				D148CD9A1D00624E0047E559 /* SettingsViewController.swift */,
+				D148CD961D0061C10047E559 /* DraftMetricsHelper.swift */,
 				D16A80851CFF0E4D00C2EC89 /* Main.storyboard */,
+				D148CDB31D0068AB0047E559 /* PlayerCell.swift */,
 				D16A80881CFF0E4D00C2EC89 /* Assets.xcassets */,
 				D16A808A1CFF0E4D00C2EC89 /* LaunchScreen.storyboard */,
 				D16A808D1CFF0E4D00C2EC89 /* Info.plist */,
+				D148CD9D1D0064430047E559 /* Fonts */,
 			);
 			path = DraftMetrics2;
 			sourceTree = "<group>";
@@ -125,9 +222,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D148CDB11D0064430047E559 /* Monda-Light.ttf in Resources */,
 				D16A808C1CFF0E4D00C2EC89 /* LaunchScreen.storyboard in Resources */,
+				D148CDAE1D0064430047E559 /* Arvo-BoldItalic.ttf in Resources */,
 				D16A80891CFF0E4D00C2EC89 /* Assets.xcassets in Resources */,
+				D148CDAF1D0064430047E559 /* Arvo-Italic.ttf in Resources */,
+				D148CDB21D0064430047E559 /* Monda-Regular.ttf in Resources */,
 				D16A80871CFF0E4D00C2EC89 /* Main.storyboard in Resources */,
+				D148CDAD1D0064430047E559 /* Arvo-Bold.ttf in Resources */,
+				D148CDAC1D0064430047E559 /* Arvo-Regular.ttf in Resources */,
+				D148CDB01D0064430047E559 /* Monda-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +242,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D148CD991D0062180047E559 /* DraftHistoryViewController.swift in Sources */,
 				D16A80841CFF0E4D00C2EC89 /* MyPickViewController.swift in Sources */,
+				D148CDB41D0068AB0047E559 /* PlayerCell.swift in Sources */,
 				D16A80801CFF0E4D00C2EC89 /* AppDelegate.swift in Sources */,
 				D16A80821CFF0E4D00C2EC89 /* MainPageViewController.swift in Sources */,
+				D148CD971D0061C10047E559 /* DraftMetricsHelper.swift in Sources */,
+				D148CD9B1D00624E0047E559 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +364,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DraftMetrics2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jack-Cable.DraftMetrics2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -267,6 +376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DraftMetrics2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jack-Cable.DraftMetrics2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +402,7 @@
 				D16A80921CFF0E4D00C2EC89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
