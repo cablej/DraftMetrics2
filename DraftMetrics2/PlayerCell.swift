@@ -15,5 +15,9 @@ class PlayerCell: UITableViewCell {
     @IBOutlet var teamLabel: UILabel!
     @IBOutlet var playerImage: UIImageView!
     
+    override func awakeFromNib() {
+        selectButton.layer.borderWidth = 3
+        selectButton.layer.borderColor = UIColor(red: 51.0/255, green: 51.0/255, blue: 51.0/255, alpha: 1).CGColor
+    }
     
 }
