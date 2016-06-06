@@ -12,6 +12,9 @@
             <string>Monda-Bold</string>
             <string>Monda-Bold</string>
             <string>Monda-Bold</string>
+            <string>Monda-Bold</string>
+            <string>Monda-Bold</string>
+            <string>Monda-Bold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -137,7 +140,7 @@
             </objects>
             <point key="canvasLocation" x="1562" y="-320"/>
         </scene>
-        <!--MY PICK-->
+        <!--MY PICK PREVIEW-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="MyPickViewController" customModule="DraftMetrics2" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,9 +151,109 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jG-Fs-baI">
+                                <rect key="frame" x="0.0" y="124" width="600" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="RECOMENDED POSITION: WR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oy-pM-SLJ">
+                                        <rect key="frame" x="20" y="41" width="585" height="21"/>
+                                        <fontDescription key="fontDescription" name="Monda-Bold" family="Monda" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.72549019609999998" green="0.6705882353" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8oy-pM-SLJ" secondAttribute="trailing" constant="8" id="LPV-Gl-srE"/>
+                                    <constraint firstItem="8oy-pM-SLJ" firstAttribute="leading" secondItem="3jG-Fs-baI" secondAttribute="leading" constant="24" id="Ma2-od-aRJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="8oy-pM-SLJ" secondAttribute="bottom" constant="16" id="U58-xS-0Vo"/>
+                                    <constraint firstAttribute="height" constant="70" id="tCl-Eh-s5d"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="udT-zl-Jv1"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="udT-zl-Jv1"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="80" sectionHeaderHeight="30" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rhc-Sc-cgA">
+                                <rect key="frame" x="0.0" y="217" width="600" height="334"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerCell" rowHeight="80" id="qc0-pD-pvD" customClass="PlayerCell" customModule="DraftMetrics2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="30" width="600" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qc0-pD-pvD" id="QGq-d5-Opu">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cam Newton" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50W-Fm-wxz">
+                                                    <rect key="frame" x="116" y="8" width="222" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Monda-Bold" family="Monda" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Panthers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ok-zE-caf">
+                                                    <rect key="frame" x="116" y="37" width="222" height="28"/>
+                                                    <fontDescription key="fontDescription" name="Monda-Bold" family="Monda" pointSize="15"/>
+                                                    <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGB-N5-n7s">
+                                                    <rect key="frame" x="504" y="20" width="80" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="FJO-jK-jcH"/>
+                                                        <constraint firstAttribute="width" constant="80" id="yiC-DF-gY4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="14"/>
+                                                    <state key="normal" title="SELECT">
+                                                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onSelectButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WXV-SE-Uaj"/>
+                                                    </connections>
+                                                </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newton2" translatesAutoresizingMaskIntoConstraints="NO" id="sEX-si-7dJ">
+                                                    <rect key="frame" x="8" y="5" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="Icn-vs-CDp"/>
+                                                        <constraint firstAttribute="width" constant="70" id="QI3-RR-lyd"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="50W-Fm-wxz" firstAttribute="top" secondItem="QGq-d5-Opu" secondAttribute="topMargin" id="1Y3-vN-GoR"/>
+                                                <constraint firstItem="50W-Fm-wxz" firstAttribute="leading" secondItem="sEX-si-7dJ" secondAttribute="trailing" constant="8" id="26B-fZ-i0x"/>
+                                                <constraint firstItem="uGB-N5-n7s" firstAttribute="trailing" secondItem="QGq-d5-Opu" secondAttribute="trailingMargin" constant="-8" id="2mk-wL-Dc0"/>
+                                                <constraint firstItem="1Ok-zE-caf" firstAttribute="top" secondItem="50W-Fm-wxz" secondAttribute="bottom" constant="8" id="4h7-Hu-8h4"/>
+                                                <constraint firstItem="uGB-N5-n7s" firstAttribute="centerY" secondItem="QGq-d5-Opu" secondAttribute="centerY" id="8cP-aJ-iRD"/>
+                                                <constraint firstItem="sEX-si-7dJ" firstAttribute="centerY" secondItem="QGq-d5-Opu" secondAttribute="centerY" id="9rS-9x-jwg"/>
+                                                <constraint firstItem="sEX-si-7dJ" firstAttribute="leading" secondItem="QGq-d5-Opu" secondAttribute="leadingMargin" id="Oa9-ye-XV6"/>
+                                                <constraint firstItem="1Ok-zE-caf" firstAttribute="leading" secondItem="sEX-si-7dJ" secondAttribute="trailing" constant="8" id="nzl-cg-9id"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="50W-Fm-wxz" id="z5Q-Ks-OSf"/>
+                                            <outlet property="playerImage" destination="sEX-si-7dJ" id="4bJ-U9-Xe9"/>
+                                            <outlet property="selectButton" destination="uGB-N5-n7s" id="rur-nF-gGB"/>
+                                            <outlet property="teamLabel" destination="1Ok-zE-caf" id="iB4-x6-4jV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rhc-Sc-cgA" firstAttribute="top" secondItem="3jG-Fs-baI" secondAttribute="bottom" constant="60" id="5IN-na-fOR"/>
+                            <constraint firstItem="3jG-Fs-baI" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="6cr-am-gct"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="rhc-Sc-cgA" secondAttribute="bottom" id="JwC-fh-dYl"/>
+                            <constraint firstItem="3jG-Fs-baI" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="60" id="NkH-fK-9oq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rhc-Sc-cgA" secondAttribute="trailing" constant="-20" id="ff5-aH-DdG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3jG-Fs-baI" secondAttribute="trailing" constant="-20" id="ig9-NJ-iMt"/>
+                            <constraint firstItem="rhc-Sc-cgA" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="-20" id="sjw-b7-WIe"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="MY PICK" id="d1N-lg-PiS"/>
+                    <navigationItem key="navigationItem" title="MY PICK PREVIEW" id="d1N-lg-PiS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,7 +271,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xVM-yB-j1q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xVM-yB-j1q">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>

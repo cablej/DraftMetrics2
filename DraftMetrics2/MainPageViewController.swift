@@ -12,7 +12,6 @@ import SDWebImage
 class MainPageViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet var tableView: UITableView!
-    let TAG_OFFSET = 1000;
     
     var fantasy = Fantasy.sharedInstance()
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -29,6 +28,7 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
         searchTextField.delegate = self
         
         DraftMetricsHelper.initializeViewController(self)
+        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -121,8 +121,14 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
     }
     
     func getRound() {
-        if(!fantasy.isUserPick()) { self.title = NSString(format: "Round %i, Pick %i", fantasy.getCurrentRound(), fantasy.getRelativePick()) as String }
-        else { self.title = "Your Pick!" }
+        if(!fantasy.isUserPick()) {
+            self.title = NSString(format: "ROUND %i, PICK %i", fantasy.getCurrentRound(), fantasy.getRelativePick()) as String
+            self.navigationController?.title = NSString(format: "Round %i, Pick %i", fantasy.getCurrentRound(), fantasy.getRelativePick()) as String
+        }
+        else {
+            self.title = "YOUR PICK!"
+            self.navigationController?.title = "Your Pick!"
+        }
     }
     
     func filterPlayers() {

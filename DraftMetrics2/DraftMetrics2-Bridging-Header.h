@@ -5,3 +5,4 @@
 #import "Fantasy.h"
 #import "Player.h"
 #import "PlayerIdent.h"
+#import <HMSegmentedControl/HMSegmentedControl.h>

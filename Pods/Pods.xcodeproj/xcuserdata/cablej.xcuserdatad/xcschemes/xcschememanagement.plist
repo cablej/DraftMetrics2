@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>HMSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Onboard.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,12 +27,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0ED938D2BABBCB2D70EB59F2D89A7321</key>
+		<key>6ACCBF50FCFB63B1E8E14FC67EADD59D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7A9CCFB3502242CA41E9CE3CB04EB25C</key>
+		<key>71C1DF39EE1271EA1147F993CA1439A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>95A62B0B429EDE9EA940F22024863C94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
