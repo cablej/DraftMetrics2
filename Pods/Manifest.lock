@@ -1,0 +1,17 @@
+PODS:
+  - Onboard (2.1.8)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+
+DEPENDENCIES:
+  - Onboard
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  Onboard: 209cc1972bacdcf04f0f9cc491936b2c21d4bdb4
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+
+PODFILE CHECKSUM: c611f71c57afc06e8785351d86e51f2812e1ca83
+
+COCOAPODS: 1.0.0

@@ -25,6 +25,8 @@
 @property float score;
 @property float rank;
 
+@property(strong, nonatomic) NSString* image;
+
 -(PlayerIdent*) getPID;
 -(NSString*) toString;
 -(void) calcInfo;

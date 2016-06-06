@@ -27,6 +27,8 @@ static int TOTAL_PICKS = 14;
     NSMutableArray *cumulative;
     NSMutableArray *bestValues;
     
+    NSMutableDictionary *playerImages;
+    
     NSArray *picksFromFile;
     int currentPickFromFile;
     
@@ -70,7 +72,7 @@ static int TOTAL_PICKS = 14;
 -(instancetype) initWithNumTeams:(int)num_teams withNumPick:(int)my_pick withNumRoundsInAdvance:(int)num_rounds_in_advance withCustomScoring:(NSArray *)customRules {
     userDefaults = [NSUserDefaults standardUserDefaults];
     if(self = [super init]) {
-        
+        [self saveFilesToDocuments];
         NUM_TEAMS = num_teams;
         MY_PICK = my_pick;
         NUM_ROUNDS_IN_ADVANCE = num_rounds_in_advance;
@@ -99,8 +101,15 @@ static int TOTAL_PICKS = 14;
     illegalChars = @[@"\""];
     bestNames = [self arrayWithAllValuesNil:TOTAL_PICKS+1];
     positions = myPositions;
+    [self loadImages];
     [self loadMainInfo];
     [self loadAdjustedPlayers];
+}
+
+-(void) reloadPicks {
+    picksFromFile = [self getContentsOfUserFile:@"picks" :@"txt"];
+    currentPickFromFile = 0;
+    
     availablePlayers = [self arrayWithAllValuesNil:(int)myPositions.count];
     NSUInteger mpcount = myPositions.count;
     for(int i=0; i<mpcount; i++) {
@@ -112,15 +121,12 @@ static int TOTAL_PICKS = 14;
     bestValues = [self arrayWithDimensions:@[N((int)myPositions.count), N(TOTAL_PICKS*NUM_TEAMS+1)]];
 }
 
--(void) reloadPicks {
-    picksFromFile = [self getContentsOfUserFile:@"picks" :@"txt"];
-    currentPickFromFile = 0;
-}
-
 -(void) makeCalculations {
     [self reloadPicks];
     [self calculateValues:1];
 }
+
+
 
 -(NSArray*) getDraftHistory {
     NSMutableArray *playerArray = [NSMutableArray array];
@@ -134,6 +140,7 @@ static int TOTAL_PICKS = 14;
 
 -(void) clearDraft {
     [self saveArrayToFile:@"picks" : @"txt" withArray:@[]];
+    picksFromFile = @[];
 }
 
 -(NSArray*) getPlayersByPositionForRound:(int)round {
@@ -208,6 +215,7 @@ static int TOTAL_PICKS = 14;
     NSMutableArray *newPicks = [NSMutableArray arrayWithArray:picksFromFile];
     [newPicks removeObjectAtIndex:index];
     [self saveArrayToFile:@"picks" : @"txt" withArray:newPicks];
+    picksFromFile = newPicks;
 }
 
 -(int) nextPick {
@@ -220,6 +228,7 @@ static int TOTAL_PICKS = 14;
     NSMutableArray *currentPicks = [NSMutableArray arrayWithArray:picksFromFile];
     [currentPicks addObject:[NSString stringWithFormat:@"%i", p.ID]];
     [self saveArrayToFile:@"picks" : @"txt" withArray:currentPicks];
+    picksFromFile = currentPicks;
 }
 
 -(void) loadAdjustedPlayers {
@@ -233,6 +242,24 @@ static int TOTAL_PICKS = 14;
     }
 }
 
+-(void) loadImages {
+    playerImages = [NSMutableDictionary new];
+    NSData *imageJSON = [self getDataOfUserFile:@"players" :@"json"];
+    if(imageJSON) {
+        NSError *error;
+        id data = [NSJSONSerialization JSONObjectWithData:imageJSON options:0 error:&error];
+        if(!error) {
+            NSArray *jsonPlayerImages =  data[@"body"][@"players"];
+            for(NSDictionary *jsonPlayer in jsonPlayerImages) {
+                [playerImages setObject:jsonPlayer[@"photo"] forKey:[self removeSpecialCharacters:jsonPlayer[@"fullname"]]];
+            }
+        }
+    }
+}
+
+-(NSString*) removeSpecialCharacters : (NSString*) str {
+    return [[str componentsSeparatedByCharactersInSet:[[NSCharacterSet letterCharacterSet] invertedSet]] componentsJoinedByString:@""];
+}
 
 -(void) loadMainInfo {
     NSArray *projections = [self getContentsOfUserFile:@"projections" : @"csv"];
@@ -260,6 +287,8 @@ static int TOTAL_PICKS = 14;
         }
         p.ID = (int) players.count;
         p.rank = [row[0] floatValue];
+        
+        p.image = playerImages[[self removeSpecialCharacters:p.name]];
         
         if([[userDefaults objectForKey:@"updatedProjections"] isEqualToString:@"1"]) {
             p.points = [row[11] floatValue]*[scoring[0] floatValue]; //passYds
@@ -589,6 +618,16 @@ static int TOTAL_PICKS = 14;
     return allLinedStrings;
 }
 
+-(NSData*) getDataOfUserFile : (NSString*) fileName : (NSString*) type {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@.%@",documentsDirectory, fileName, type];
+    
+    NSData *fileContents = [NSData dataWithContentsOfFile:filePath];
+    return fileContents;
+}
+
+
 -(NSArray*) getContentsOfUserFile : (NSString*) fileName : (NSString*) type {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -642,6 +681,7 @@ static int TOTAL_PICKS = 14;
 -(void) saveFilesToDocuments {
     [self saveFileToDocuments:@"http://d214mfsab.org/projections.csv" :@"projections" :@"csv"];
     [self saveFileToDocuments:@"http://d214mfsab.org/stdev.csv" :@"stdev" :@"csv"];
+    [self saveFileToDocuments:@"http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json" : @"players":@"json"];
     NSString* updatedProjections = [self getFirstLineOfURL:@"http://d214mfsab.org/updatedProjections.html"];
     if ([updatedProjections isEqualToString: @"1"]) {
         [userDefaults setObject:@"1" forKey:@"updatedProjections"];

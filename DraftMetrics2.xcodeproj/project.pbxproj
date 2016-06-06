@@ -27,9 +27,13 @@
 		D16A80891CFF0E4D00C2EC89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16A80881CFF0E4D00C2EC89 /* Assets.xcassets */; };
 		D16A808C1CFF0E4D00C2EC89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16A808A1CFF0E4D00C2EC89 /* LaunchScreen.storyboard */; };
 		D16E3AA11D01250D00F3BA78 /* Monda-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D12799C21D0123B6009CCD93 /* Monda-Bold.ttf */; };
+		DAEA58149ADCCC4044B9FD32 /* Pods_DraftMetrics2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A77C8DBDE8DB012E219580B /* Pods_DraftMetrics2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A77C8DBDE8DB012E219580B /* Pods_DraftMetrics2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DraftMetrics2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D2A40AFEA1BE019D88A384A /* Pods-DraftMetrics2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DraftMetrics2.release.xcconfig"; path = "Pods/Target Support Files/Pods-DraftMetrics2/Pods-DraftMetrics2.release.xcconfig"; sourceTree = "<group>"; };
+		9865A6F8DFE8429BA0368340 /* Pods-DraftMetrics2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DraftMetrics2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DraftMetrics2/Pods-DraftMetrics2.debug.xcconfig"; sourceTree = "<group>"; };
 		D12799B61D011D78009CCD93 /* DraftMetrics2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DraftMetrics2-Bridging-Header.h"; sourceTree = "<group>"; };
 		D12799B71D011D79009CCD93 /* Fantasy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fantasy.h; sourceTree = "<group>"; };
 		D12799B81D011D79009CCD93 /* Fantasy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fantasy.m; sourceTree = "<group>"; };
@@ -63,12 +67,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAEA58149ADCCC4044B9FD32 /* Pods_DraftMetrics2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC1484832070AEC5D2D8459E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9865A6F8DFE8429BA0368340 /* Pods-DraftMetrics2.debug.xcconfig */,
+				3D2A40AFEA1BE019D88A384A /* Pods-DraftMetrics2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CDC7D5C0ADC34834D261AD2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A77C8DBDE8DB012E219580B /* Pods_DraftMetrics2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D12799C01D011D7D009CCD93 /* Fantasy */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +179,8 @@
 			children = (
 				D16A807E1CFF0E4D00C2EC89 /* DraftMetrics2 */,
 				D16A807D1CFF0E4D00C2EC89 /* Products */,
+				CC1484832070AEC5D2D8459E /* Pods */,
+				CDC7D5C0ADC34834D261AD2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,9 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D16A80901CFF0E4D00C2EC89 /* Build configuration list for PBXNativeTarget "DraftMetrics2" */;
 			buildPhases = (
+				C9DF7955B5E6B5718A7356B1 /* 📦 Check Pods Manifest.lock */,
 				D16A80781CFF0E4D00C2EC89 /* Sources */,
 				D16A80791CFF0E4D00C2EC89 /* Frameworks */,
 				D16A807A1CFF0E4D00C2EC89 /* Resources */,
+				BB73CA7C09252FC964B3A08E /* 📦 Embed Pods Frameworks */,
+				6B1D13CB012659B65BACC61A /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,6 +288,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B1D13CB012659B65BACC61A /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DraftMetrics2/Pods-DraftMetrics2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB73CA7C09252FC964B3A08E /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DraftMetrics2/Pods-DraftMetrics2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9DF7955B5E6B5718A7356B1 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D16A80781CFF0E4D00C2EC89 /* Sources */ = {
@@ -389,11 +464,12 @@
 		};
 		D16A80911CFF0E4D00C2EC89 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9865A6F8DFE8429BA0368340 /* Pods-DraftMetrics2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DraftMetrics2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jack-Cable.DraftMetrics2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -404,11 +480,12 @@
 		};
 		D16A80921CFF0E4D00C2EC89 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D2A40AFEA1BE019D88A384A /* Pods-DraftMetrics2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DraftMetrics2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Jack-Cable.DraftMetrics2";
 				PRODUCT_NAME = "$(TARGET_NAME)";

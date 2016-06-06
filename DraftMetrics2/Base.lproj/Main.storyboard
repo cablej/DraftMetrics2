@@ -73,13 +73,6 @@
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newton2" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-ww-8fB">
-                                                    <rect key="frame" x="8" y="15" width="70" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="7H3-vZ-dVl"/>
-                                                        <constraint firstAttribute="height" constant="50" id="rhb-5x-oFb"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAn-ZF-Ndz">
                                                     <rect key="frame" x="504" y="20" width="80" height="40"/>
                                                     <constraints>
@@ -94,6 +87,13 @@
                                                         <action selector="onSelectButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="fbY-o3-gGP"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newton2" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-ww-8fB">
+                                                    <rect key="frame" x="8" y="5" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="7H3-vZ-dVl"/>
+                                                        <constraint firstAttribute="height" constant="70" id="rhb-5x-oFb"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="eoP-WC-Uly" firstAttribute="top" secondItem="mHD-9M-Hhz" secondAttribute="topMargin" id="3mN-5E-02U"/>
@@ -192,9 +192,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newton2" translatesAutoresizingMaskIntoConstraints="NO" id="i9y-rU-uFn">
-                                                    <rect key="frame" x="8" y="15" width="70" height="50"/>
+                                                    <rect key="frame" x="8" y="5" width="70" height="70"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="2US-qt-KiA"/>
+                                                        <constraint firstAttribute="height" constant="70" id="2US-qt-KiA"/>
                                                         <constraint firstAttribute="width" constant="70" id="K38-g6-iGW"/>
                                                     </constraints>
                                                 </imageView>
@@ -225,8 +225,23 @@
                             <constraint firstItem="I2T-Tv-Z3g" firstAttribute="top" secondItem="xVM-yB-j1q" secondAttribute="bottom" id="fOC-vp-Wd4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="DRAFT HISTORY" id="flV-5D-Nq2"/>
+                    <navigationItem key="navigationItem" title="DRAFT HISTORY" id="flV-5D-Nq2">
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="Six-Oa-lSh">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onResetButtonTapped:" destination="WUt-jM-RUF" id="F6o-4f-bKf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="dHW-pg-dSi">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onEditButtonTapepd:" destination="WUt-jM-RUF" id="g5u-6i-7v3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="editBarButton" destination="dHW-pg-dSi" id="p8r-YD-IVc"/>
+                        <outlet property="resetBarButton" destination="Six-Oa-lSh" id="Oqg-xX-H3i"/>
                         <outlet property="tableView" destination="xVM-yB-j1q" id="99B-yt-YUX"/>
                     </connections>
                 </viewController>
