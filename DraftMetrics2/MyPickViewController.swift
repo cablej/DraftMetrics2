@@ -11,40 +11,52 @@ import HMSegmentedControl
 
 class MyPickViewController: UIViewController, UITableViewDataSource {
     
+    let positionTitles = ["QB", "RB", "WR", "TE"]
     let positionsControl = HMSegmentedControl(sectionTitles: ["QB", "RB", "WR", "TE"])
-    let roundControl /* to Major Tom */ = HMSegmentedControl(sectionTitles: ["ROUND 1", "ROUND 2", "ROUND 3", "ROUND 4"])
+    var roundControl /* to Major Tom */ : HMSegmentedControl?
 
     @IBOutlet var tableView: UITableView!
     
     var fantasy = Fantasy.sharedInstance()
     let defaults = NSUserDefaults.standardUserDefaults()
     
-    var NUM_ROUNDS_IN_ADVANCE: Int;
+    var NUM_ROUNDS_IN_ADVANCE: Int = 6;
     
-    var recommendedPlayers = NSMutableArray()
+    var recommendedPlayers : NSArray?
+    var currentPosition = 0;
+    var currentRound = 1;
+    var roundToDisplay = 0;
     
+    @IBOutlet var recommendedPositionLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         DraftMetricsHelper.initializeViewController(self)
         
-        NUM_ROUNDS_IN_ADVANCE = Int((defaults.objectForKey("NUM_ROUNDS_IN_ADVANCE")?.intValue)!)
+        NUM_ROUNDS_IN_ADVANCE = 6//Int((defaults.objectForKey("NUM_ROUNDS_IN_ADVANCE")?.intValue)!)
         
-        var titles = NSMutableArray()
-        for i in 1...NUM_ROUNDS_IN_ADVANCE {
+        let titles = NSMutableArray()
+        for i in currentRound..<(currentRound + NUM_ROUNDS_IN_ADVANCE) {
             titles.addObject("ROUND \(i)")
         }
         
-        roundControl.sectionTitles = [String]()
+        roundControl = HMSegmentedControl(sectionTitles: titles as [AnyObject])
+        
+        guard let roundControl = roundControl else {
+            return
+        }
+        
         roundControl.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 60)
         roundControl.backgroundColor = UIColor(red: 77/255, green: 80/255, blue: 48/255, alpha: 1)
         roundControl.selectionStyle = HMSegmentedControlSelectionStyleBox
         roundControl.selectionIndicatorColor = UIColor(red: 185/255, green: 171/255, blue: 74/255, alpha: 1)
         roundControl.selectionIndicatorBoxOpacity = 1
         roundControl.titleFormatter = {(segmentedControl, title, index, selected) -> NSAttributedString in
-            let attString = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!])
+            let attString = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.init(name: "Monda-Bold", size: 16)!])
             return attString
         }
+        
+        roundControl.addTarget(self, action: #selector(self.roundControlChangedValue(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.view.addSubview(roundControl)
         
         positionsControl.frame = CGRectMake(0, 130, UIScreen.mainScreen().bounds.width, 60)
@@ -53,29 +65,69 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
         positionsControl.selectionIndicatorColor = UIColor(red: 185/255, green: 171/255, blue: 74/255, alpha: 1)
         positionsControl.selectionIndicatorBoxOpacity = 1
         positionsControl.titleFormatter = {(segmentedControl, title, index, selected) -> NSAttributedString in
-            let attString = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!])
+            let attString = NSAttributedString(string: title, attributes: [NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont.init(name: "Monda-Bold", size: 16)!])
             return attString
         }
+        positionsControl.addTarget(self, action: #selector(self.positionControlChangedValue(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
         self.view.addSubview(positionsControl)
         
         tableView.dataSource = self
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        refreshData()
+    func positionControlChangedValue(segmentedControl: HMSegmentedControl) {
+        currentPosition = segmentedControl.selectedSegmentIndex
+        self.tableView.reloadData()
     }
     
-    func refreshData() {
-        fantasy.setNoCalc(false)
-        fantasy.makeCalculations()
-        fantasy.calculateData()
+    func roundControlChangedValue(segmentedControl: HMSegmentedControl) {
+        roundToDisplay = segmentedControl.selectedSegmentIndex + currentRound
+        refreshData(false)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        restartController()
+    }
+    
+    func restartController() {
+        currentRound = Int(fantasy.getNextRoundToDraft())
+        roundToDisplay = currentRound
+        roundControl?.setSelectedSegmentIndex(0, animated: true)
         
+        refreshRoundControl()
+        refreshData(true)
+    }
+    
+    func refreshData(recalculate: Bool) {
+        if(recalculate) {
+            fantasy.setNoCalc(false)
+            fantasy.makeCalculations()
+            fantasy.calculateData()
+        }
         
+        recommendedPlayers = fantasy.getPlayersByPositionForRound(Int32(roundToDisplay))
+        currentPosition = Int(fantasy.getRecommendedPositionForRound(Int32(roundToDisplay)))
         
+        positionsControl.setSelectedSegmentIndex(UInt(currentPosition), animated: true)
+        
+        recommendedPositionLabel.text = "RECOMMENDED POSITION: \(positionTitles[currentPosition])"
+        refreshDisplay()
+    }
+    
+    func refreshDisplay() {
         
         self.tableView.reloadData()
+    }
+    
+    func refreshRoundControl() {
+        let titles = NSMutableArray()
+        for i in currentRound..<(currentRound + NUM_ROUNDS_IN_ADVANCE) {
+            titles.addObject("ROUND \(i)")
+        }
+        roundControl?.sectionTitles = titles as [AnyObject]
+        roundControl?.reloadInputViews()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -83,18 +135,24 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredPlayers.count
+        guard let recommendedPlayers = recommendedPlayers else {
+            return 0
+        }
+        if(recommendedPlayers.count == 0) { return 0 }
+        return recommendedPlayers[currentPosition].count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        guard let recommendedPlayers = recommendedPlayers else {
+            return tableView.dequeueReusableCellWithIdentifier("PlayerCell")!
+        }
         let cell = tableView.dequeueReusableCellWithIdentifier("PlayerCell") as! PlayerCell
         
-        let player = filteredPlayers[indexPath.row] as! Player
+        let player = (recommendedPlayers[currentPosition] as! NSArray)[indexPath.row] as! Player
         
-        cell.selectButton!.tag = Int(player.ID)
+        cell.selectButton!.tag = indexPath.row
         
         cell.nameLabel.text = player.name
-        cell.teamLabel.text = player.team
         
         if (player.image != nil && !player.image.isEmpty) {
             if let url = NSURL(string: player.image) {
@@ -106,39 +164,32 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
             cell.playerImage = UIImageView()
         }
         
+        let chanceOfAvailability = floor(100.0*fantasy.getChanceOfAvailability(player, Int32(roundToDisplay)));
+        let chanceOfBest = floor(100.0*fantasy.getChanceOfBestAvailable(player, Int32(roundToDisplay)));
+//        cell.detailTextLabel.adjustsFontSizeToFitWidth=YES;
+        
+        if UI_USER_INTERFACE_IDIOM() == .Phone {
+            if(!((defaults.objectForKey("SHOW_BEST_AVAIL")?.boolValue)!)) {
+                cell.teamLabel.text = NSString(format: "%.0f pts, %.0f%% avbl.", player.points, chanceOfAvailability) as String
+            } else {
+                cell.teamLabel.text = NSString(format: "%.0f pts, %.0f%%, %.0f%%.", player.points, chanceOfAvailability, chanceOfBest*100.0) as String
+            }
+        } else {
+            cell.teamLabel.text = NSString(format: "%.0f pts, %.0f%% chance of availability, %.0f%% chance of best available", player.points, chanceOfAvailability, chanceOfBest) as String
+        }
+        
         return cell
     }
     
     @IBAction func onSelectButtonTapped(sender: UIButton) {
-        let id = sender.tag
-        var player: Player?
-        var index: Int?
+        let row = sender.tag
         
-        for available in filteredPlayers as NSArray as! [Player] {
-            if Int(available.ID) == id {
-                index = filteredPlayers.indexOfObject(available)
-            }
-        }
+        let player = (recommendedPlayers![positionsControl.selectedSegmentIndex] as! NSArray)[row]
         
-        for available in availablePlayers as NSArray as! [Player] {
-            if Int(available.ID) == id {
-                player = available
-                availablePlayers.removeObject(available)
-            }
-        }
-        
-        fantasy.draftPlayer(player!)
-        
-        filterPlayers()
-        
-        searchTextField.resignFirstResponder()
-        
-        self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: index!, inSection: 0)], withRowAnimation: .Fade)
-        
-        getRound()
+        fantasy.draftPlayer(player as! Player)
+        restartController()
     }
 
-
-
+    
 }
 

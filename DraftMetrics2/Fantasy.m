@@ -290,7 +290,7 @@ static int TOTAL_PICKS = 14;
         
         p.image = playerImages[[self removeSpecialCharacters:p.name]];
         
-        if([[userDefaults objectForKey:@"updatedProjections"] isEqualToString:@"1"]) {
+        if([[userDefaults objectForKey:@"updatedProjections2"] isEqualToString:@"1"]) {
             p.points = [row[11] floatValue]*[scoring[0] floatValue]; //passYds
             p.points += [row[12] floatValue]*[scoring[1] floatValue]; //passTds
             p.points += [row[13] floatValue]*[scoring[2] floatValue]; //passInt
@@ -684,7 +684,7 @@ static int TOTAL_PICKS = 14;
     [self saveFileToDocuments:@"http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json" : @"players":@"json"];
     NSString* updatedProjections = [self getFirstLineOfURL:@"http://d214mfsab.org/updatedProjections.html"];
     if ([updatedProjections isEqualToString: @"1"]) {
-        [userDefaults setObject:@"1" forKey:@"updatedProjections"];
+        [userDefaults setObject:@"1" forKey:@"updatedProjections2"];
     }
 }
 

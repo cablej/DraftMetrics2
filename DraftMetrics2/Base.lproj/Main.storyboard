@@ -210,6 +210,7 @@
                                                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
+                                                        <action selector="onSelectButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Kf7-Yy-EyS"/>
                                                         <action selector="onSelectButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WXV-SE-Uaj"/>
                                                     </connections>
                                                 </button>
@@ -254,6 +255,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MY PICK PREVIEW" id="d1N-lg-PiS"/>
+                    <connections>
+                        <outlet property="recommendedPositionLabel" destination="8oy-pM-SLJ" id="wex-1A-CVs"/>
+                        <outlet property="tableView" destination="rhc-Sc-cgA" id="Ekg-wg-vFO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
