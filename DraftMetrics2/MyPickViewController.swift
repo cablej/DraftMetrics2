@@ -33,7 +33,7 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
         
         DraftMetricsHelper.initializeViewController(self)
         
-        NUM_ROUNDS_IN_ADVANCE = 6//Int((defaults.objectForKey("NUM_ROUNDS_IN_ADVANCE")?.intValue)!)
+        NUM_ROUNDS_IN_ADVANCE = Int((defaults.objectForKey("NUM_ROUNDS_IN_ADVANCE")?.intValue)!)
         
         let titles = NSMutableArray()
         for i in currentRound..<(currentRound + NUM_ROUNDS_IN_ADVANCE) {
@@ -164,13 +164,13 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
             cell.playerImage = UIImageView()
         }
         
-        let chanceOfAvailability = floor(100.0*fantasy.getChanceOfAvailability(player, Int32(roundToDisplay)));
-        let chanceOfBest = floor(100.0*fantasy.getChanceOfBestAvailable(player, Int32(roundToDisplay)));
+        let chanceOfAvailability = round(100.0*fantasy.getChanceOfAvailability(player, Int32(roundToDisplay)));
+        let chanceOfBest = round(100.0*fantasy.getChanceOfBestAvailable(player, Int32(roundToDisplay)));
 //        cell.detailTextLabel.adjustsFontSizeToFitWidth=YES;
         
         if UI_USER_INTERFACE_IDIOM() == .Phone {
             if(!((defaults.objectForKey("SHOW_BEST_AVAIL")?.boolValue)!)) {
-                cell.teamLabel.text = NSString(format: "%.0f pts, %.0f%% avbl.", player.points, chanceOfAvailability) as String
+                cell.teamLabel.text = NSString(format: "%.0f pts, %.0f%% avl.", player.points, chanceOfAvailability) as String
             } else {
                 cell.teamLabel.text = NSString(format: "%.0f pts, %.0f%%, %.0f%%.", player.points, chanceOfAvailability, chanceOfBest*100.0) as String
             }
