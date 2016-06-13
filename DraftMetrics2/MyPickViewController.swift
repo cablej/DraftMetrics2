@@ -88,6 +88,7 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        NUM_ROUNDS_IN_ADVANCE = Int((defaults.objectForKey("NUM_ROUNDS_IN_ADVANCE")?.intValue)!)
         restartController()
     }
     

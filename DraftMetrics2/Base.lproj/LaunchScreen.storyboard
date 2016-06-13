@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,17 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_main" translatesAutoresizingMaskIntoConstraints="NO" id="4id-MY-FxC">
-                                <rect key="frame" x="139" y="180" width="300" height="300"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="football_logo" translatesAutoresizingMaskIntoConstraints="NO" id="4id-MY-FxC">
+                                <rect key="frame" x="139" y="350" width="300" height="164"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="UhM-BI-icd"/>
-                                    <constraint firstAttribute="height" constant="200" id="a8O-XR-50T"/>
+                                    <constraint firstAttribute="width" constant="300" id="UhM-BI-icd"/>
+                                    <constraint firstAttribute="height" constant="164" id="a8O-XR-50T"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20u-5B-sb2">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                <color key="backgroundColor" red="0.6588235294117647" green="0.039215686274509803" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="VMz-5f-hyt"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.30079737167482806" green="0.31132998184646465" blue="0.19500814517700002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="20u-5B-sb2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="09Z-r7-lmR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="20u-5B-sb2" secondAttribute="trailing" constant="-20" id="5EO-zC-xud"/>
+                            <constraint firstItem="20u-5B-sb2" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="B8F-Gs-T4y"/>
+                            <constraint firstItem="20u-5B-sb2" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="Xui-aA-VrT"/>
                             <constraint firstItem="4id-MY-FxC" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="dIJ-6C-Rg0"/>
                             <constraint firstItem="4id-MY-FxC" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ylF-4m-1gQ"/>
                         </constraints>
@@ -39,6 +51,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_main" width="512" height="512"/>
+        <image name="football_logo" width="737" height="403"/>
     </resources>
 </document>

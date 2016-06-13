@@ -21,6 +21,8 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
     
     @IBOutlet var searchTextField: UITextField!
     
+    var hasLoaded = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,12 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
         
         DraftMetricsHelper.initializeViewController(self)
         
+//        if(defaults.objectForKey("hasLoaded") == nil || defaults.boolForKey("hasLoaded") == false) {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("IntroPage")
+            self.presentViewController(vc, animated: true, completion: nil)
+            
+            defaults.setBool(true, forKey: "hasLoaded")
+//        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

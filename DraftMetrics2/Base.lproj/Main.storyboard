@@ -3,10 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Monda-Bold.ttf">
+            <string>Monda-Bold</string>
+            <string>Monda-Bold</string>
+            <string>Monda-Bold</string>
             <string>Monda-Bold</string>
             <string>Monda-Bold</string>
             <string>Monda-Bold</string>
@@ -39,7 +43,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                        <rect key="frame" x="0.0" y="44" width="600" height="507"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t16-Wh-k6o">
@@ -66,7 +70,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="80" sectionHeaderHeight="30" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Sy-YA-YZb">
-                                <rect key="frame" x="0.0" y="68" width="600" height="419"/>
+                                <rect key="frame" x="0.0" y="68" width="600" height="439"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerCell" rowHeight="80" id="jgi-cM-Fjb" customClass="PlayerCell" customModule="DraftMetrics2" customModuleProvider="target">
@@ -164,7 +168,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jG-Fs-baI">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3jG-Fs-baI">
                                 <rect key="frame" x="0.0" y="124" width="600" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="RECOMENDED POSITION: WR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oy-pM-SLJ">
@@ -288,12 +292,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xVM-yB-j1q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xVM-yB-j1q">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DraftCell" rowHeight="80" id="jsH-kC-eUL" customClass="PlayerCell" customModule="DraftMetrics2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="72" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jsH-kC-eUL" id="3bs-xh-bEQ">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
@@ -381,7 +385,7 @@
                             <tableViewSection headerTitle="DRAFT SETTINGS" id="pU0-Ij-Vzo">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QZN-Yf-7u7">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="72" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QZN-Yf-7u7" id="yhq-af-SDm">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
@@ -390,7 +394,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NUMBER OF TEAMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="RjU-eS-S8R">
                                                     <rect key="frame" x="8" y="19" width="192" height="21"/>
                                                     <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8" borderStyle="roundedRect" placeholder="8" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4SC-g2-ONP">
@@ -421,7 +425,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2HM-Sr-PxX">
-                                        <rect key="frame" x="0.0" y="152" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="132" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2HM-Sr-PxX" id="83t-XU-nqe">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
@@ -430,7 +434,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="MY PICK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="XIG-d3-Vwb">
                                                     <rect key="frame" x="8" y="16" width="192" height="28"/>
                                                     <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" placeholder="1" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N4f-89-zop">
@@ -461,7 +465,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Nm9-NK-UIl">
-                                        <rect key="frame" x="0.0" y="212" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="192" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nm9-NK-UIl" id="gLU-5P-3em">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
@@ -470,7 +474,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NUMBER OF ROUNDS PREVIEWED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-es-wMQ">
                                                     <rect key="frame" x="8" y="16" width="296" height="28"/>
                                                     <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="6" borderStyle="roundedRect" placeholder="6" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p6Z-9S-gvX">
@@ -501,7 +505,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="F4O-Cj-a29">
-                                        <rect key="frame" x="0.0" y="272" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="252" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F4O-Cj-a29" id="LEw-TD-2rg">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
@@ -510,7 +514,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SHOW CHANCE OF BEST AVAILABLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="44R-9u-fsM">
                                                     <rect key="frame" x="8" y="16" width="313" height="28"/>
                                                     <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIz-cW-IwO">
@@ -533,7 +537,7 @@
                             <tableViewSection headerTitle="SCORING SETTINGS" id="T43-cK-Dr6">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="76T-kE-hSd">
-                                        <rect key="frame" x="0.0" y="360" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="340" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="76T-kE-hSd" id="8Oc-2N-xc3">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="59.5"/>
@@ -542,7 +546,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="CUSTOM SCORING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVc-FT-j0B">
                                                     <rect key="frame" x="8" y="8" width="313" height="28"/>
                                                     <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -557,7 +561,7 @@
                             <tableViewSection headerTitle="PROJECTIONS" id="2Xb-y9-0oa">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MW1-DC-mNy">
-                                        <rect key="frame" x="0.0" y="448" width="600" height="60"/>
+                                        <rect key="frame" x="0.0" y="428" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MW1-DC-mNy" id="eX1-FQ-gw4">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
@@ -566,7 +570,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="UPDATE PROJECTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piZ-7w-lgJ">
                                                     <rect key="frame" x="8" y="8" width="313" height="28"/>
                                                     <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -602,6 +606,100 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7b-Cv-wlx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1394" y="1759"/>
+        </scene>
+        <!--Intro Page View Controller-->
+        <scene sceneID="f0g-Oi-pVF">
+            <objects>
+                <viewController storyboardIdentifier="IntroPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OLg-r5-scS" customClass="IntroPageViewController" customModule="DraftMetrics2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bcs-Bm-KzW"/>
+                        <viewControllerLayoutGuide type="bottom" id="eaZ-jv-udI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5qL-qb-5iK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Football Image" translatesAutoresizingMaskIntoConstraints="NO" id="WQk-0d-2Nh">
+                                <rect key="frame" x="0.0" y="0.0" width="2069" height="1337"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WQk-0d-2Nh" secondAttribute="height" multiplier="2069:1337" id="yXZ-Qf-4zi"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Hash Marks" translatesAutoresizingMaskIntoConstraints="NO" id="h2S-eY-3AT">
+                                <rect key="frame" x="569" y="0.0" width="27" height="1194"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Htr-GU-6GT"/>
+                                    <constraint firstAttribute="width" secondItem="h2S-eY-3AT" secondAttribute="height" multiplier="9:398" id="anQ-dg-TEG"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Football Logo" translatesAutoresizingMaskIntoConstraints="NO" id="UzS-HV-THL">
+                                <rect key="frame" x="-18" y="-16" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="cZA-di-sNw"/>
+                                    <constraint firstAttribute="height" constant="200" id="fKZ-Qd-Xj5"/>
+                                    <constraint firstAttribute="width" secondItem="UzS-HV-THL" secondAttribute="height" multiplier="1:1" id="oL1-gv-UiG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="DRAFT" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMn-uN-Fq0">
+                                <rect key="frame" x="20" y="192" width="152" height="74"/>
+                                <fontDescription key="fontDescription" name="Monda-Bold" family="Monda" pointSize="45"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="METRICS" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqv-U8-U4l">
+                                <rect key="frame" x="20" y="247" width="215" height="74"/>
+                                <fontDescription key="fontDescription" name="Monda-Bold" family="Monda" pointSize="45"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H03-Be-p0c">
+                                <rect key="frame" x="431" y="487" width="120" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="2ny-uX-g3H"/>
+                                    <constraint firstAttribute="height" constant="60" id="9f3-jC-xdb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Monda-Bold" family="Monda" pointSize="30"/>
+                                <state key="normal" title="START">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="49e-Tb-3d3" kind="show" id="a2f-fU-nIz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UzS-HV-THL" firstAttribute="top" secondItem="5qL-qb-5iK" secondAttribute="topMargin" constant="-32" id="0we-ti-XVK"/>
+                            <constraint firstItem="WQk-0d-2Nh" firstAttribute="leading" secondItem="5qL-qb-5iK" secondAttribute="leadingMargin" constant="-20" id="Ofo-mC-ndS"/>
+                            <constraint firstItem="WQk-0d-2Nh" firstAttribute="top" secondItem="5qL-qb-5iK" secondAttribute="topMargin" id="RoI-ia-nKP"/>
+                            <constraint firstItem="eaZ-jv-udI" firstAttribute="top" secondItem="H03-Be-p0c" secondAttribute="bottom" constant="46" id="VYl-Gv-ggO"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="WQk-0d-2Nh" secondAttribute="bottom" id="WZU-BR-jHg"/>
+                            <constraint firstItem="h2S-eY-3AT" firstAttribute="leading" secondItem="H03-Be-p0c" secondAttribute="trailing" constant="66" id="aok-Sz-1jE"/>
+                            <constraint firstItem="eaZ-jv-udI" firstAttribute="top" secondItem="H03-Be-p0c" secondAttribute="bottom" constant="40" id="auQ-J8-HMH"/>
+                            <constraint firstItem="h2S-eY-3AT" firstAttribute="top" secondItem="5qL-qb-5iK" secondAttribute="topMargin" id="b2J-dK-omc"/>
+                            <constraint firstItem="h2S-eY-3AT" firstAttribute="leading" secondItem="H03-Be-p0c" secondAttribute="trailing" constant="8" id="bZn-1C-YU5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h2S-eY-3AT" secondAttribute="trailing" constant="-16" id="dPf-NH-cBv"/>
+                            <constraint firstItem="TMn-uN-Fq0" firstAttribute="top" secondItem="UzS-HV-THL" secondAttribute="bottom" constant="8" id="gLz-lt-OYm"/>
+                            <constraint firstItem="aqv-U8-U4l" firstAttribute="top" secondItem="UzS-HV-THL" secondAttribute="bottom" constant="64" id="hjz-bH-Rr2"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="h2S-eY-3AT" secondAttribute="bottom" id="kNE-8b-bD9"/>
+                            <constraint firstItem="UzS-HV-THL" firstAttribute="leading" secondItem="5qL-qb-5iK" secondAttribute="leadingMargin" constant="-32" id="ypK-1J-1wG"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="aok-Sz-1jE"/>
+                                <exclude reference="VYl-Gv-ggO"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="footballImage" destination="UzS-HV-THL" id="jh0-oy-Xnw"/>
+                        <outlet property="startButton" destination="H03-Be-p0c" id="6HF-FE-tC7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nwu-KT-nr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-806" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -763,6 +861,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Football Image" width="2069" height="1377"/>
+        <image name="Football Logo" width="310" height="310"/>
+        <image name="Hash Marks" width="27" height="1194"/>
         <image name="History Icon" width="19" height="20"/>
         <image name="My Picks Icon" width="21" height="24"/>
         <image name="Round Icon" width="31" height="17"/>

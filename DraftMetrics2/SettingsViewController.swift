@@ -23,12 +23,17 @@ class SettingsViewController: UITableViewController {
         
         DraftMetricsHelper.initializeViewController(self)
         
+        addDoneButton()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         numberOfTeamsTextField.text = "\(defaults.objectForKey("NUM_TEAMS")!)"
         myPickTextField.text = "\(defaults.objectForKey("MY_PICK")!)"
         roundsPreviewedTextField.text = "\(defaults.objectForKey("NUM_ROUNDS_IN_ADVANCE")!)"
         bestAvailableSlider.on = defaults.boolForKey("SHOW_BEST_AVAIL")
-        
-        addDoneButton()
+
     }
     
     @IBAction func onSaveButtonTapped(sender: AnyObject) {
