@@ -21,15 +21,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="football_logo" translatesAutoresizingMaskIntoConstraints="NO" id="4id-MY-FxC">
                                 <rect key="frame" x="139" y="350" width="300" height="164"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="UhM-BI-icd"/>
-                                    <constraint firstAttribute="height" constant="164" id="a8O-XR-50T"/>
+                                    <constraint firstAttribute="width" constant="200" id="UhM-BI-icd"/>
+                                    <constraint firstAttribute="height" constant="109" id="a8O-XR-50T"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="20u-5B-sb2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="22"/>
                                 <color key="backgroundColor" red="0.6588235294117647" green="0.039215686274509803" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="VMz-5f-hyt"/>
+                                    <constraint firstAttribute="height" constant="22" id="VMz-5f-hyt"/>
                                 </constraints>
                             </view>
                         </subviews>

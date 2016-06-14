@@ -21,6 +21,7 @@
 		D148CDB21D0064430047E559 /* Monda-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D148CDAB1D0064430047E559 /* Monda-Regular.ttf */; };
 		D148CDB41D0068AB0047E559 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D148CDB31D0068AB0047E559 /* PlayerCell.swift */; };
 		D14A3F8E1D0EE2B900963D42 /* IntroPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14A3F8D1D0EE2B900963D42 /* IntroPageViewController.swift */; };
+		D15DC2951D1034EC00E7BA0D /* CustomScoringTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15DC2941D1034EC00E7BA0D /* CustomScoringTableViewController.swift */; };
 		D16A80801CFF0E4D00C2EC89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A807F1CFF0E4D00C2EC89 /* AppDelegate.swift */; };
 		D16A80821CFF0E4D00C2EC89 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A80811CFF0E4D00C2EC89 /* MainPageViewController.swift */; };
 		D16A80841CFF0E4D00C2EC89 /* MyPickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A80831CFF0E4D00C2EC89 /* MyPickViewController.swift */; };
@@ -54,6 +55,7 @@
 		D148CDAB1D0064430047E559 /* Monda-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Monda-Regular.ttf"; sourceTree = "<group>"; };
 		D148CDB31D0068AB0047E559 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		D14A3F8D1D0EE2B900963D42 /* IntroPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroPageViewController.swift; sourceTree = "<group>"; };
+		D15DC2941D1034EC00E7BA0D /* CustomScoringTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScoringTableViewController.swift; sourceTree = "<group>"; };
 		D16A807C1CFF0E4D00C2EC89 /* DraftMetrics2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DraftMetrics2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16A807F1CFF0E4D00C2EC89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16A80811CFF0E4D00C2EC89 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				D148CD9A1D00624E0047E559 /* SettingsViewController.swift */,
 				D148CD961D0061C10047E559 /* DraftMetricsHelper.swift */,
 				D14A3F8D1D0EE2B900963D42 /* IntroPageViewController.swift */,
+				D15DC2941D1034EC00E7BA0D /* CustomScoringTableViewController.swift */,
 				D16A80851CFF0E4D00C2EC89 /* Main.storyboard */,
 				D148CDB31D0068AB0047E559 /* PlayerCell.swift */,
 				D16A80881CFF0E4D00C2EC89 /* Assets.xcassets */,
@@ -356,6 +359,7 @@
 				D148CD971D0061C10047E559 /* DraftMetricsHelper.swift in Sources */,
 				D12799BE1D011D79009CCD93 /* Player.m in Sources */,
 				D148CD9B1D00624E0047E559 /* SettingsViewController.swift in Sources */,
+				D15DC2951D1034EC00E7BA0D /* CustomScoringTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
