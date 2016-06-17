@@ -72,7 +72,6 @@ static int TOTAL_PICKS = 14;
 -(instancetype) initWithNumTeams:(int)num_teams withNumPick:(int)my_pick withNumRoundsInAdvance:(int)num_rounds_in_advance withCustomScoring:(NSArray *)customRules {
     userDefaults = [NSUserDefaults standardUserDefaults];
     if(self = [super init]) {
-        [self saveFilesToDocuments];
         NUM_TEAMS = num_teams;
         MY_PICK = my_pick;
         NUM_ROUNDS_IN_ADVANCE = num_rounds_in_advance;
@@ -91,7 +90,7 @@ static int TOTAL_PICKS = 14;
         [userDefaults setObject:@"1" forKey:@"FILES_SAVED"];
     }
     
-    
+    scoring = [userDefaults objectForKey:@"SCORING"];
     noCalc = false;
     players = [NSMutableArray array];
     PlayerIDs = [NSMutableDictionary dictionary];
@@ -103,7 +102,7 @@ static int TOTAL_PICKS = 14;
     positions = myPositions;
     [self loadImages];
     [self loadMainInfo];
-    [self loadAdjustedPlayers];
+    //[self loadAdjustedPlayers];
 }
 
 -(void) reloadPicks {
@@ -298,10 +297,10 @@ static int TOTAL_PICKS = 14;
             p.points += [row[15] floatValue]*[scoring[4] floatValue]; //rushTds
             p.points += [row[16] floatValue]*[scoring[5] floatValue]; //rec
             p.points += [row[17] floatValue]*[scoring[6] floatValue]; //recYds
-            p.points += [row[28] floatValue]*[scoring[7] floatValue]; //recTds
+            p.points += [row[18] floatValue]*[scoring[7] floatValue]; //recTds
             if(p.position == 0) p.points += [row[19] floatValue]*[scoring[8] floatValue]; //twoPts PASS
-            else p.points += [row[20] floatValue]*[scoring[9] floatValue]; //twoPts RUSH / REC
-            p.points += [row[21] floatValue]*[scoring[10] floatValue]; //fumbles
+            else p.points += [row[19] floatValue]*[scoring[9] floatValue]; //twoPts RUSH / REC
+            p.points += [row[20] floatValue]*[scoring[10] floatValue]; //fumbles
         } else {
             p.points = [row[7] floatValue];
         }

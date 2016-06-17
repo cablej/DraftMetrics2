@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D16A807B1CFF0E4D00C2EC89"
-               BuildableName = "DraftMetrics2.app"
-               BlueprintName = "DraftMetrics2"
+               BuildableName = "DraftMetrics.app"
+               BlueprintName = "DraftMetrics"
                ReferencedContainer = "container:DraftMetrics2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D16A807B1CFF0E4D00C2EC89"
-            BuildableName = "DraftMetrics2.app"
-            BlueprintName = "DraftMetrics2"
+            BuildableName = "DraftMetrics.app"
+            BlueprintName = "DraftMetrics"
             ReferencedContainer = "container:DraftMetrics2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D16A807B1CFF0E4D00C2EC89"
-            BuildableName = "DraftMetrics2.app"
-            BlueprintName = "DraftMetrics2"
+            BuildableName = "DraftMetrics.app"
+            BlueprintName = "DraftMetrics"
             ReferencedContainer = "container:DraftMetrics2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D16A807B1CFF0E4D00C2EC89"
-            BuildableName = "DraftMetrics2.app"
-            BlueprintName = "DraftMetrics2"
+            BuildableName = "DraftMetrics.app"
+            BlueprintName = "DraftMetrics"
             ReferencedContainer = "container:DraftMetrics2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

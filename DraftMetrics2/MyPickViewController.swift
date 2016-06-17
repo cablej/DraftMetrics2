@@ -173,7 +173,7 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
             if(!((defaults.objectForKey("SHOW_BEST_AVAIL")?.boolValue)!)) {
                 cell.teamLabel.text = NSString(format: "%.0f pts, %.0f%% avl.", player.points, chanceOfAvailability) as String
             } else {
-                cell.teamLabel.text = NSString(format: "%.0f pts, %.0f%%, %.0f%%.", player.points, chanceOfAvailability, chanceOfBest*100.0) as String
+                cell.teamLabel.text = NSString(format: "%.0f pts, %.0f%%, %.0f%%.", player.points, chanceOfAvailability, chanceOfBest) as String
             }
         } else {
             cell.teamLabel.text = NSString(format: "%.0f pts, %.0f%% chance of availability, %.0f%% chance of best available", player.points, chanceOfAvailability, chanceOfBest) as String

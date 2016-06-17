@@ -79,4 +79,8 @@ class SettingsViewController: UITableViewController {
         roundsPreviewedTextField.inputAccessoryView = keyboardToolbar
     }
     
+    @IBAction func updateProjectionsTapped(sender: AnyObject) {
+        Fantasy.sharedInstance().saveFilesToDocuments()
+        Fantasy.sharedInstance().prepValues()
+    }
 }

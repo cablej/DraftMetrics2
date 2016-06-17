@@ -37,6 +37,20 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
             
             defaults.setBool(true, forKey: "hasLoaded")
         }
+        
+        if(defaults.objectForKey("hasPresentedAlert") == nil) {
+            help()
+            defaults.setBool(true, forKey: "hasPresentedAlert")
+        }
+    }
+    
+    func help() {
+        let alert = UIAlertView(title: "Welcome", message: "DraftMetrics calculates the best picks live during your draft. During your draft, select the players drafted. The 'My Pick' tab previews your picks and suggests the best players to choose.", delegate: nil, cancelButtonTitle: "Ok")
+        alert.show()
+    }
+    
+    @IBAction func helpButtonTapped(sender: AnyObject) {
+        help()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

@@ -31,23 +31,51 @@ class CustomScoringTableViewController: UITableViewController, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DraftMetricsHelper.initializeViewController(self)
+        
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
         var scoring: [AnyObject] = (defaults.objectForKey("SCORING") as! [AnyObject])
-        self.passingYardsFirstField.text = String(format: "%.0f", CFloat(scoring[0] as! String)! == 0 ? 25 : 1 / CFloat(scoring[0] as! String)!)
-        self.passingYardsSecondField.text = CFloat(scoring[0])! == 0 ? "0" : "1"
+        var passingFirst = 1 / CFloat(Double(scoring[0] as! NSNumber))
+        if !passingFirst.isFinite {
+            passingFirst = 1;
+        }
+        self.passingYardsFirstField.text = String(format: "%.1f", passingFirst)
+        self.passingYardsSecondField.text = CFloat(Double(scoring[0] as! NSNumber)) == 0 ? "0" : "1"
         self.passingTouchdownField.text = "\(scoring[1])"
         self.interceptionField.text = "\(scoring[2])"
-        self.rushingYardsFirstField.text = String(format: "%.0f", CFloat(scoring[3])! == 0 ? 10 : 1 / CFloat(scoring[3])!)
-        self.rushingYardsSecondField.text = CFloat(scoring[3])! == 0 ? "0" : "1"
+        var rushingFirst = 1 / CFloat(Double(scoring[3] as! NSNumber))
+        if !rushingFirst.isFinite {
+            rushingFirst = 1;
+        }
+        self.rushingYardsFirstField.text = String(format: "%.1f", rushingFirst)
+        self.rushingYardsSecondField.text = CFloat(Double(scoring[3] as! NSNumber)) == 0 ? "0" : "1"
         self.rushingTouchdownField.text = "\(scoring[4])"
-        self.receptionsFirstField.text = String(format: "%.0f", CFloat(scoring[5])! == 0 ? 1 : 1 / CFloat(scoring[5])!)
-        self.receptionsSecondField.text = CFloat(scoring[5])! == 0 ? "0" : "1"
-        self.receivingYardsFirstField.text = String(format: "%.0f", CFloat(scoring[6])! == 0 ? 10 : 1 / CFloat(scoring[6])!)
-        self.receivingYardsSecondField.text = CFloat(scoring[6])! == 0 ? "0" : "1"
+        var receptionsFirst = 1 / CFloat(Double(scoring[5] as! NSNumber))
+        if !receptionsFirst.isFinite {
+            receptionsFirst = 1;
+        }
+        self.receptionsFirstField.text = String(format: "%.1f", receptionsFirst)
+        self.receptionsSecondField.text = CFloat(Double(scoring[5] as! NSNumber)) == 0 ? "0" : "1"
+        var receivingFirst = 1 / CFloat(Double(scoring[6] as! NSNumber))
+        if !receivingFirst.isFinite {
+            receivingFirst = 1;
+        }
+        self.receivingYardsFirstField.text = String(format: "%.1f", receivingFirst)
+        self.receivingYardsSecondField.text = CFloat(Double(scoring[6] as! NSNumber)) == 0 ? "0" : "1"
         self.receivingTouchdownField.text = "\(scoring[7])"
         self.passing2PtConversionField.text = "\(scoring[8])"
         self.rushing2PtConversionField.text = "\(scoring[9])"
         self.fumblesLostField.text = "\(scoring[10])"
 
+    }
+    
+    @IBAction func saveButtonTapped(sender: AnyObject) {
+        let newVals: [AnyObject] = [NSNumber(float: Float(passingYardsSecondField.text!)! / Float(passingYardsFirstField.text!)!),
+                                    passingTouchdownField.text!, interceptionField.text!, NSNumber(float: Float(rushingYardsSecondField.text!)! / Float(rushingYardsFirstField.text!)!), rushingTouchdownField.text!, NSNumber(float: Float(receptionsSecondField.text!)! / Float(receptionsFirstField.text!)!), NSNumber(float: Float(receivingYardsSecondField.text!)! / Float(receivingYardsFirstField.text!)!), receivingTouchdownField.text!, passing2PtConversionField.text!, rushing2PtConversionField.text!, fumblesLostField.text!]
+        defaults.setObject(newVals, forKey: "SCORING")
+        Fantasy.sharedInstance().prepValues()
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

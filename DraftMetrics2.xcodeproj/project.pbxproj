@@ -56,7 +56,7 @@
 		D148CDB31D0068AB0047E559 /* PlayerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		D14A3F8D1D0EE2B900963D42 /* IntroPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroPageViewController.swift; sourceTree = "<group>"; };
 		D15DC2941D1034EC00E7BA0D /* CustomScoringTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomScoringTableViewController.swift; sourceTree = "<group>"; };
-		D16A807C1CFF0E4D00C2EC89 /* DraftMetrics2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DraftMetrics2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16A807C1CFF0E4D00C2EC89 /* DraftMetrics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DraftMetrics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D16A807F1CFF0E4D00C2EC89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D16A80811CFF0E4D00C2EC89 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		D16A80831CFF0E4D00C2EC89 /* MyPickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPickViewController.swift; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		D16A807D1CFF0E4D00C2EC89 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D16A807C1CFF0E4D00C2EC89 /* DraftMetrics2.app */,
+				D16A807C1CFF0E4D00C2EC89 /* DraftMetrics.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -222,9 +222,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D16A807B1CFF0E4D00C2EC89 /* DraftMetrics2 */ = {
+		D16A807B1CFF0E4D00C2EC89 /* DraftMetrics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D16A80901CFF0E4D00C2EC89 /* Build configuration list for PBXNativeTarget "DraftMetrics2" */;
+			buildConfigurationList = D16A80901CFF0E4D00C2EC89 /* Build configuration list for PBXNativeTarget "DraftMetrics" */;
 			buildPhases = (
 				C9DF7955B5E6B5718A7356B1 /* 📦 Check Pods Manifest.lock */,
 				D16A80781CFF0E4D00C2EC89 /* Sources */,
@@ -237,9 +237,9 @@
 			);
 			dependencies = (
 			);
-			name = DraftMetrics2;
+			name = DraftMetrics;
 			productName = DraftMetrics2;
-			productReference = D16A807C1CFF0E4D00C2EC89 /* DraftMetrics2.app */;
+			productReference = D16A807C1CFF0E4D00C2EC89 /* DraftMetrics.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -270,7 +270,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D16A807B1CFF0E4D00C2EC89 /* DraftMetrics2 */,
+				D16A807B1CFF0E4D00C2EC89 /* DraftMetrics */,
 			);
 		};
 /* End PBXProject section */
@@ -479,7 +479,7 @@
 				INFOPLIST_FILE = DraftMetrics2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Jack-Cable.DraftMetrics2";
+				PRODUCT_BUNDLE_IDENTIFIER = JackCable.DraftMetrics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DraftMetrics2/DraftMetrics2-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -495,7 +495,7 @@
 				INFOPLIST_FILE = DraftMetrics2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Jack-Cable.DraftMetrics2";
+				PRODUCT_BUNDLE_IDENTIFIER = JackCable.DraftMetrics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DraftMetrics2/DraftMetrics2-Bridging-Header.h";
 			};
@@ -513,7 +513,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D16A80901CFF0E4D00C2EC89 /* Build configuration list for PBXNativeTarget "DraftMetrics2" */ = {
+		D16A80901CFF0E4D00C2EC89 /* Build configuration list for PBXNativeTarget "DraftMetrics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D16A80911CFF0E4D00C2EC89 /* Debug */,

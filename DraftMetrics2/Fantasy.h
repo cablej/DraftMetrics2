@@ -44,6 +44,8 @@
 
 -(void) setNoCalc : (BOOL) val;
 
+-(void) prepValues;
+
 -(BOOL) picksHaveChanged;
 -(BOOL) settingsHaveChanged : (int) numTeams : (int) myPick : (int) numberPreviews : (NSArray*) scoringNew;
 

@@ -45,14 +45,13 @@
             <string>Monda-Regular</string>
             <string>Monda-Regular</string>
             <string>Monda-Regular</string>
-            <string>Monda-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
         <!--ROUND 1, PICK 6-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="MainPageViewController" customModule="DraftMetrics2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="MainPageViewController" customModule="DraftMetrics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -88,7 +87,7 @@
                                 <rect key="frame" x="0.0" y="68" width="600" height="439"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerCell" rowHeight="80" id="jgi-cM-Fjb" customClass="PlayerCell" customModule="DraftMetrics2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerCell" rowHeight="80" id="jgi-cM-Fjb" customClass="PlayerCell" customModule="DraftMetrics" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="30" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jgi-cM-Fjb" id="mHD-9M-Hhz">
@@ -121,7 +120,7 @@
                                                         <action selector="onSelectButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="fbY-o3-gGP"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newton2" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-ww-8fB">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-ww-8fB">
                                                     <rect key="frame" x="8" y="5" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="7H3-vZ-dVl"/>
@@ -161,7 +160,14 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="9Sy-YA-YZb" secondAttribute="bottom" id="ssq-kf-3Nw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ROUND 1, PICK 6" id="uzd-sz-dnl"/>
+                    <navigationItem key="navigationItem" title="ROUND 1, PICK 6" id="uzd-sz-dnl">
+                        <barButtonItem key="rightBarButtonItem" title="Help" id="SJO-Vk-cEu">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="helpButtonTapped:" destination="9pv-A4-QxB" id="fXF-zv-37k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchTextField" destination="hd3-zk-s7g" id="toT-lH-Hbo"/>
                         <outlet property="tableView" destination="9Sy-YA-YZb" id="jsb-Zz-K1t"/>
@@ -174,7 +180,7 @@
         <!--MY PICK PREVIEW-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="MyPickViewController" customModule="DraftMetrics2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="MyPickViewController" customModule="DraftMetrics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -211,7 +217,7 @@
                                 <rect key="frame" x="0.0" y="217" width="600" height="334"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerCell" rowHeight="80" id="qc0-pD-pvD" customClass="PlayerCell" customModule="DraftMetrics2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerCell" rowHeight="80" id="qc0-pD-pvD" customClass="PlayerCell" customModule="DraftMetrics" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="30" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qc0-pD-pvD" id="QGq-d5-Opu">
@@ -245,7 +251,7 @@
                                                         <action selector="onSelectButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WXV-SE-Uaj"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newton2" translatesAutoresizingMaskIntoConstraints="NO" id="sEX-si-7dJ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sEX-si-7dJ">
                                                     <rect key="frame" x="8" y="5" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="Icn-vs-CDp"/>
@@ -298,7 +304,7 @@
         <!--DRAFT HISTORY-->
         <scene sceneID="lRx-BW-LCr">
             <objects>
-                <viewController id="WUt-jM-RUF" customClass="DraftHistoryViewController" customModule="DraftMetrics2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WUt-jM-RUF" customClass="DraftHistoryViewController" customModule="DraftMetrics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Dh-cv-S8n"/>
                         <viewControllerLayoutGuide type="bottom" id="I2T-Tv-Z3g"/>
@@ -311,7 +317,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DraftCell" rowHeight="80" id="jsH-kC-eUL" customClass="PlayerCell" customModule="DraftMetrics2" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DraftCell" rowHeight="80" id="jsH-kC-eUL" customClass="PlayerCell" customModule="DraftMetrics" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="72" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jsH-kC-eUL" id="3bs-xh-bEQ">
@@ -330,7 +336,7 @@
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newton2" translatesAutoresizingMaskIntoConstraints="NO" id="i9y-rU-uFn">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i9y-rU-uFn">
                                                     <rect key="frame" x="8" y="5" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="70" id="2US-qt-KiA"/>
@@ -391,7 +397,7 @@
         <!--SETTINGS-->
         <scene sceneID="Qsq-At-hZO">
             <objects>
-                <tableViewController id="uh3-M9-1cs" customClass="SettingsViewController" customModule="DraftMetrics2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="uh3-M9-1cs" customClass="SettingsViewController" customModule="DraftMetrics" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="4p9-hU-fYe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -408,7 +414,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NUMBER OF TEAMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="RjU-eS-S8R">
                                                     <rect key="frame" x="8" y="19" width="192" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -448,7 +454,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="MY PICK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="XIG-d3-Vwb">
                                                     <rect key="frame" x="8" y="16" width="192" height="28"/>
-                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -488,7 +494,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NUMBER OF ROUNDS PREVIEWED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-es-wMQ">
                                                     <rect key="frame" x="8" y="16" width="296" height="28"/>
-                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -528,11 +534,11 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="SHOW CHANCE OF BEST AVAILABLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="44R-9u-fsM">
                                                     <rect key="frame" x="8" y="16" width="313" height="28"/>
-                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIz-cW-IwO">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WIz-cW-IwO">
                                                     <rect key="frame" x="543" y="14" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="onSliderValueChanged:" destination="uh3-M9-1cs" eventType="valueChanged" id="wTl-bb-1Gk"/>
@@ -543,6 +549,7 @@
                                                 <constraint firstItem="44R-9u-fsM" firstAttribute="leading" secondItem="LEw-TD-2rg" secondAttribute="leadingMargin" constant="8" id="1YN-wR-Nif"/>
                                                 <constraint firstItem="WIz-cW-IwO" firstAttribute="leading" secondItem="44R-9u-fsM" secondAttribute="trailing" constant="8" id="4ab-cS-Tcq"/>
                                                 <constraint firstItem="WIz-cW-IwO" firstAttribute="centerY" secondItem="LEw-TD-2rg" secondAttribute="centerY" id="BRm-Yp-pFH"/>
+                                                <constraint firstItem="WIz-cW-IwO" firstAttribute="trailing" secondItem="LEw-TD-2rg" secondAttribute="trailingMargin" id="Ln4-fv-KD7"/>
                                                 <constraint firstItem="44R-9u-fsM" firstAttribute="centerY" secondItem="LEw-TD-2rg" secondAttribute="centerY" id="NVy-RC-nM8"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -585,16 +592,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="UPDATE PROJECTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piZ-7w-lgJ">
-                                                    <rect key="frame" x="8" y="8" width="313" height="28"/>
-                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8m1-G4-bZc">
+                                                    <rect key="frame" x="8" y="15" width="584" height="30"/>
+                                                    <state key="normal">
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="UPDATE PROJECTIONS">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="17" name="Monda-Bold"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="updateProjectionsTapped:" destination="uh3-M9-1cs" eventType="touchUpInside" id="OFn-6k-tn6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="piZ-7w-lgJ" firstAttribute="centerY" secondItem="eX1-FQ-gw4" secondAttribute="centerY" id="r6H-tW-nes"/>
-                                                <constraint firstItem="piZ-7w-lgJ" firstAttribute="leading" secondItem="eX1-FQ-gw4" secondAttribute="leadingMargin" constant="8" id="tXY-oY-prd"/>
+                                                <constraint firstItem="8m1-G4-bZc" firstAttribute="top" secondItem="eX1-FQ-gw4" secondAttribute="topMargin" id="9zA-GN-x2q"/>
+                                                <constraint firstItem="8m1-G4-bZc" firstAttribute="centerY" secondItem="eX1-FQ-gw4" secondAttribute="centerY" id="M6e-0j-i5I"/>
+                                                <constraint firstItem="8m1-G4-bZc" firstAttribute="trailing" secondItem="eX1-FQ-gw4" secondAttribute="trailingMargin" constant="8" id="Vvi-oy-zyh"/>
+                                                <constraint firstItem="8m1-G4-bZc" firstAttribute="leading" secondItem="eX1-FQ-gw4" secondAttribute="leadingMargin" constant="8" id="eaW-tz-lAZ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="8m1-G4-bZc" secondAttribute="bottom" id="x3M-xA-YGB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -628,7 +647,7 @@
         <!--Custom Scoring Table View Controller-->
         <scene sceneID="TCv-6y-Qlz">
             <objects>
-                <tableViewController id="kd2-31-RB6" customClass="CustomScoringTableViewController" customModule="DraftMetrics2" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kd2-31-RB6" customClass="CustomScoringTableViewController" customModule="DraftMetrics" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5UO-sP-ddb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -645,7 +664,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Every" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BT5-fo-GyN">
                                                     <rect key="frame" x="20" y="12" width="46" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="msF-jc-g7V">
@@ -672,7 +691,7 @@
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="passing yards" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7M7-6r-dSi">
                                                     <rect key="frame" x="125" y="12" width="107" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Monda-Regular" family="Monda" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1080,6 +1099,9 @@
                     <navigationItem key="navigationItem" id="goq-dQ-d50">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="5lh-kP-4jf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="kd2-31-RB6" id="YdW-aG-lOz"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -1107,7 +1129,7 @@
         <!--Intro Page View Controller-->
         <scene sceneID="f0g-Oi-pVF">
             <objects>
-                <viewController storyboardIdentifier="IntroPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OLg-r5-scS" customClass="IntroPageViewController" customModule="DraftMetrics2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntroPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OLg-r5-scS" customClass="IntroPageViewController" customModule="DraftMetrics" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bcs-Bm-KzW"/>
                         <viewControllerLayoutGuide type="bottom" id="eaZ-jv-udI"/>
@@ -1365,6 +1387,5 @@
         <image name="My Picks Icon" width="21" height="24"/>
         <image name="Round Icon" width="31" height="17"/>
         <image name="Settings Icon" width="21" height="21"/>
-        <image name="newton2" width="350" height="254"/>
     </resources>
 </document>
