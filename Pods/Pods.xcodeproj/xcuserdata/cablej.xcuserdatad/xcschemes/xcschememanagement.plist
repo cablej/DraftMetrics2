@@ -14,7 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DraftMetrics2.xcscheme</key>
+		<key>Pods-DraftMetrics.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,17 +27,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6ACCBF50FCFB63B1E8E14FC67EADD59D</key>
+		<key>00F0150D77C3C0FEE019298993493E76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6CEB7DC20497D26CB5C1D80C6D7CC988</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>71C1DF39EE1271EA1147F993CA1439A0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>95A62B0B429EDE9EA940F22024863C94</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import Crashlytics
 
 class MainPageViewController: UIViewController, UITableViewDataSource, UITextFieldDelegate {
     
