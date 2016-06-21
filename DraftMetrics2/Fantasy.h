@@ -31,6 +31,7 @@
 -(void) reloadPicks;
 
 -(void) draftPlayer : (Player *) p;
+-(BOOL) draftHasFinished;
 
 -(NSArray*) getDraftHistory;
 -(void) clearDraft;

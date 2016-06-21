@@ -136,6 +136,8 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
         self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: index!, inSection: 0)], withRowAnimation: .Fade)
         
         getRound()
+        
+        DraftMetricsHelper.checkReviewAlert(self)
     }
 
     @IBAction func onSearchBarEditingChanged(sender: UITextField) {

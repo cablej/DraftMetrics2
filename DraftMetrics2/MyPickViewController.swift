@@ -189,6 +189,8 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
         
         fantasy.draftPlayer(player as! Player)
         restartController()
+        
+        DraftMetricsHelper.checkReviewAlert(self)
     }
 
     

@@ -12,7 +12,7 @@
 #import "Fantasy.h"
 
 static float EPSILON = 1E-14;
-static int TOTAL_PICKS = 14;
+static int TOTAL_PICKS = 16;
 
 @implementation Fantasy {
     NSMutableArray *players;
@@ -228,6 +228,10 @@ static int TOTAL_PICKS = 14;
     [currentPicks addObject:[NSString stringWithFormat:@"%i", p.ID]];
     [self saveArrayToFile:@"picks" : @"txt" withArray:currentPicks];
     picksFromFile = currentPicks;
+}
+
+-(BOOL) draftHasFinished {
+    return picksFromFile.count >= TOTAL_PICKS*NUM_TEAMS;
 }
 
 -(void) loadAdjustedPlayers {
