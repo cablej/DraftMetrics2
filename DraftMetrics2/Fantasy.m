@@ -12,7 +12,6 @@
 #import "Fantasy.h"
 
 static float EPSILON = 1E-14;
-static int TOTAL_PICKS = 16;
 
 @implementation Fantasy {
     NSMutableArray *players;
@@ -26,6 +25,7 @@ static int TOTAL_PICKS = 16;
     NSMutableArray *availablePlayers;
     NSMutableArray *cumulative;
     NSMutableArray *bestValues;
+    int TOTAL_PICKS;
     
     NSMutableDictionary *playerImages;
     
@@ -43,6 +43,8 @@ static int TOTAL_PICKS = 16;
     NSUserDefaults *userDefaults;
     
     CFTimeInterval startTime;
+    
+    NSMutableArray *numPositions;
 }
 
 + (Fantasy*)sharedInstance {
@@ -56,6 +58,7 @@ static int TOTAL_PICKS = 16;
         if([defaults objectForKey:@"NUM_ROUNDS_IN_ADVANCE"] == nil) [defaults setObject:@2 forKey:@"NUM_ROUNDS_IN_ADVANCE"];
         if([defaults objectForKey:@"SHOW_BEST_AVAIL"] == nil) [defaults setObject:@NO forKey:@"SHOW_BEST_AVAIL"];
         if([defaults objectForKey:@"SCORING"] == nil) [defaults setObject:@[@.04, @4, @-2, @.1, @6, @0, @.1, @6, @1, @2, @-2] forKey:@"SCORING"];
+        if([defaults objectForKey:@"ROSTER"] == nil) [defaults setObject:@[@1, @2, @2, @1, @0, @1, @1, @0, @6] forKey:@"ROSTER"];
         
         int NUM_TEAMS = [[defaults objectForKey:@"NUM_TEAMS"] intValue];
         int NUM_PICK = [[defaults objectForKey:@"MY_PICK"] intValue];
@@ -94,8 +97,39 @@ static int TOTAL_PICKS = 16;
     noCalc = false;
     players = [NSMutableArray array];
     PlayerIDs = [NSMutableDictionary dictionary];
-    myPositions = @[@"QB", @"RB", @"WR", @"TE"];
-    playerValueWeights = @[@[@0.5, @1.0], @[@0.6,@0.8,@0.95,@1.0,@1.0],@[@0.5,@0.7,@0.9,@1.0,@1.0],@[@0.6,@1.0]];
+    myPositions = [self getPositionsArray];
+    
+    TOTAL_PICKS = 0;
+    NSArray *roster = [[NSUserDefaults standardUserDefaults] objectForKey:@"ROSTER"];
+    for (int i=0; i<roster.count; i++) {
+        TOTAL_PICKS += [roster[i] intValue];
+    }
+    
+    numPositions = [NSMutableArray new];
+    int numBenchPlayers = [roster[roster.count - 1] intValue];
+    for (int i=0; i<roster.count - 1; i++) {
+        int totalPlayers = [roster[i] intValue];
+        // add bench players
+        if((i == 0 || i == 3) && numBenchPlayers >= 4) { // quarterbacks and tight ends
+            totalPlayers++;
+        } else if(i == 1) { // if rb, we round bench players up
+            if(numBenchPlayers < 4) {
+                totalPlayers += ceil(numBenchPlayers / 2.0);
+            } else {
+                totalPlayers += ceil((numBenchPlayers - 2)/2.0);
+            }
+        } else if(i == 2) { // if wr, we round bench players down
+            if(numBenchPlayers < 4) {
+                totalPlayers += floor(numBenchPlayers / 2.0);
+            } else {
+                totalPlayers += floor((numBenchPlayers - 2)/2.0);
+            }
+        }
+        [numPositions addObject: N(totalPlayers)];
+    }
+    
+    playerValueWeights = @[@[@0.5, @1.0], @[@0.6,@0.8,@0.95,@1.0,@1.0],@[@0.5,@0.7,@0.9,@1.0,@1.0],@[@0.6,@1.0], @[@1.0]];
+    numPositions = [NSMutableArray arrayWithArray:@[@2, @5, @5, @2, @1]];
     myPicks = [self arrayWithAllValuesNil:TOTAL_PICKS];
     illegalChars = @[@"\""];
     bestNames = [self arrayWithAllValuesNil:TOTAL_PICKS+1];
@@ -103,6 +137,22 @@ static int TOTAL_PICKS = 16;
     [self loadImages];
     [self loadMainInfo];
     //[self loadAdjustedPlayers];
+}
+
+-(NSArray*) getPositionsArray {
+    NSMutableArray *positionsArray = [NSMutableArray new];
+    
+    NSArray *roster = [[NSUserDefaults standardUserDefaults] objectForKey:@"ROSTER"];
+    
+    NSArray *allPositions = @[@"QB", @"RB", @"WR", @"TE", @"RB/WR", @"K", @"DST", @"IDP"];
+    
+    for (int i=0; i<roster.count - 1 /* Last is bench */; i++) {
+        if([roster[i] integerValue] > 0) {
+            [positionsArray addObject:allPositions[i]];
+        }
+    }
+    
+    return positionsArray;
 }
 
 -(void) reloadPicks {
@@ -309,11 +359,12 @@ static int TOTAL_PICKS = 16;
             p.points = [row[7] floatValue];
         }
         
+        if(p.position > 3) {
+            p.points = [row[7] floatValue];
+        }
+        
         [players addObject:p];
         PlayerIdent *ident = p.getPID;
-        if([PlayerIDs objectForKey:ident] != nil) {
-            NSLog(@"Double player: %@ %@", p.name, p.team);
-        }
         [PlayerIDs setObject:N(p.ID) forKey:ident];
     }
     
@@ -436,7 +487,6 @@ static int TOTAL_PICKS = 16;
 }
 
 -(void) runDraft {
-    NSMutableArray *numPositions = [NSMutableArray arrayWithArray:@[@2, @5, @5, @2, @0, @0]];
     int myPick = MY_PICK;
     for(int pick = 1; pick < TOTAL_PICKS*NUM_TEAMS+1; pick++) {
         int round = (pick+NUM_TEAMS - 1)/NUM_TEAMS;

@@ -11,8 +11,8 @@ import HMSegmentedControl
 
 class MyPickViewController: UIViewController, UITableViewDataSource {
     
-    let positionTitles = ["QB", "RB", "WR", "TE"]
-    let positionsControl = HMSegmentedControl(sectionTitles: ["QB", "RB", "WR", "TE"])
+    var positionTitles: NSArray = []
+    var positionsControl : HMSegmentedControl?
     var roundControl /* to Major Tom */ : HMSegmentedControl?
 
     @IBOutlet var tableView: UITableView!
@@ -33,6 +33,8 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
         
         DraftMetricsHelper.initializeViewController(self)
         
+        positionTitles = fantasy.getPositionsArray()
+        
         NUM_ROUNDS_IN_ADVANCE = Int((defaults.objectForKey("NUM_ROUNDS_IN_ADVANCE")?.intValue)!)
         
         let titles = NSMutableArray()
@@ -41,8 +43,9 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
         }
         
         roundControl = HMSegmentedControl(sectionTitles: titles as [AnyObject])
+        positionsControl = HMSegmentedControl(sectionTitles: positionTitles as [AnyObject])
         
-        guard let roundControl = roundControl else {
+        guard let roundControl = roundControl, let positionsControl = positionsControl else {
             return
         }
         
@@ -111,7 +114,7 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
         recommendedPlayers = fantasy.getPlayersByPositionForRound(Int32(roundToDisplay))
         currentPosition = Int(fantasy.getRecommendedPositionForRound(Int32(roundToDisplay)))
         
-        positionsControl.setSelectedSegmentIndex(UInt(currentPosition), animated: true)
+        positionsControl?.setSelectedSegmentIndex(UInt(currentPosition), animated: true)
         
         recommendedPositionLabel.text = "RECOMMENDED POSITION: \(positionTitles[currentPosition])"
         refreshDisplay()
@@ -129,6 +132,9 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
         }
         roundControl?.sectionTitles = titles as [AnyObject]
         roundControl?.reloadInputViews()
+        
+        positionTitles = fantasy.getPositionsArray()
+        positionsControl?.sectionTitles = positionTitles as [AnyObject]
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -185,7 +191,7 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
     @IBAction func onSelectButtonTapped(sender: UIButton) {
         let row = sender.tag
         
-        let player = (recommendedPlayers![positionsControl.selectedSegmentIndex] as! NSArray)[row]
+        let player = (recommendedPlayers![(positionsControl?.selectedSegmentIndex)!] as! NSArray)[row]
         
         fantasy.draftPlayer(player as! Player)
         restartController()

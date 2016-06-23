@@ -30,6 +30,7 @@
 		D16A80891CFF0E4D00C2EC89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D16A80881CFF0E4D00C2EC89 /* Assets.xcassets */; };
 		D16A808C1CFF0E4D00C2EC89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D16A808A1CFF0E4D00C2EC89 /* LaunchScreen.storyboard */; };
 		D16E3AA11D01250D00F3BA78 /* Monda-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D12799C21D0123B6009CCD93 /* Monda-Bold.ttf */; };
+		D17030B01D19C2F100F67610 /* CustomRosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17030AF1D19C2F100F67610 /* CustomRosterViewController.swift */; };
 		DAEA58149ADCCC4044B9FD32 /* Pods_DraftMetrics2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A77C8DBDE8DB012E219580B /* Pods_DraftMetrics2.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		D16A80881CFF0E4D00C2EC89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D16A808B1CFF0E4D00C2EC89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D16A808D1CFF0E4D00C2EC89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D17030AF1D19C2F100F67610 /* CustomRosterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRosterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				D148CD961D0061C10047E559 /* DraftMetricsHelper.swift */,
 				D14A3F8D1D0EE2B900963D42 /* IntroPageViewController.swift */,
 				D15DC2941D1034EC00E7BA0D /* CustomScoringTableViewController.swift */,
+				D17030AF1D19C2F100F67610 /* CustomRosterViewController.swift */,
 				D16A80851CFF0E4D00C2EC89 /* Main.storyboard */,
 				D148CDB31D0068AB0047E559 /* PlayerCell.swift */,
 				D16A80881CFF0E4D00C2EC89 /* Assets.xcassets */,
@@ -374,6 +377,7 @@
 				D14A3F8E1D0EE2B900963D42 /* IntroPageViewController.swift in Sources */,
 				D16A80841CFF0E4D00C2EC89 /* MyPickViewController.swift in Sources */,
 				D12799BD1D011D79009CCD93 /* Fantasy.m in Sources */,
+				D17030B01D19C2F100F67610 /* CustomRosterViewController.swift in Sources */,
 				D12799BF1D011D79009CCD93 /* PlayerIdent.m in Sources */,
 				D148CDB41D0068AB0047E559 /* PlayerCell.swift in Sources */,
 				D16A80801CFF0E4D00C2EC89 /* AppDelegate.swift in Sources */,

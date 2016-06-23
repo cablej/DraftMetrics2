@@ -38,6 +38,10 @@ class SettingsViewController: UITableViewController {
     
     @IBAction func onSaveButtonTapped(sender: AnyObject) {
         updateDefaults()
+        
+        numberOfTeamsTextField.resignFirstResponder()
+        myPickTextField.resignFirstResponder()
+        roundsPreviewedTextField.resignFirstResponder()
     }
     
     func updateDefaults() {
@@ -73,6 +77,7 @@ class SettingsViewController: UITableViewController {
                                             target: nil, action: nil)
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: .Done,
                                             target: view, action: #selector(UIView.endEditing(_:)))
+        doneBarButton.tintColor = UIColor(red: 216/255, green: 0, blue: 21/255, alpha: 1)
         keyboardToolbar.items = [flexBarButton, doneBarButton]
         numberOfTeamsTextField.inputAccessoryView = keyboardToolbar
         myPickTextField.inputAccessoryView = keyboardToolbar
