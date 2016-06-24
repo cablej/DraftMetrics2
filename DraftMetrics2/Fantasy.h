@@ -36,6 +36,8 @@
 -(NSArray*) getDraftHistory;
 -(void) clearDraft;
 -(NSArray*) getPositionsArray;
+-(void) initializeRosters;
+-(void) prepValues;
 
 -(float) getChanceOfAvailability : (Player *) p : (int) round;
 -(float) getChanceOfBestAvailable : (Player *) p : (int) round;

@@ -43,6 +43,8 @@ class CustomRosterViewController: UITableViewController {
         }
         
         defaults.setObject(scoring, forKey: "ROSTER")
+        
+        Fantasy.sharedInstance().prepValues()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

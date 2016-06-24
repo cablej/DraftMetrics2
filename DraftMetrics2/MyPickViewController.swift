@@ -171,9 +171,16 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
             cell.playerImage = UIImageView()
         }
         
-        let chanceOfAvailability = round(100.0*fantasy.getChanceOfAvailability(player, Int32(roundToDisplay)));
-        let chanceOfBest = round(100.0*fantasy.getChanceOfBestAvailable(player, Int32(roundToDisplay)));
-//        cell.detailTextLabel.adjustsFontSizeToFitWidth=YES;
+        var chanceOfAvailability = round(100.0*fantasy.getChanceOfAvailability(player, Int32(roundToDisplay)));
+        var chanceOfBest = round(100.0*fantasy.getChanceOfBestAvailable(player, Int32(roundToDisplay)));
+        
+        if(!chanceOfAvailability.isFinite) {
+            chanceOfAvailability = 100;
+        }
+        
+        if(!chanceOfBest.isFinite) {
+            chanceOfBest = 100;
+        }
         
         if UI_USER_INTERFACE_IDIOM() == .Phone {
             if(!((defaults.objectForKey("SHOW_BEST_AVAIL")?.boolValue)!)) {

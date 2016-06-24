@@ -18,7 +18,7 @@ static float EPSILON = 1E-14;
     NSMutableDictionary *PlayerIDs;
     NSArray *myPositions;
     NSArray *positions;
-    NSArray *playerValueWeights;
+    NSMutableArray *playerValueWeights;
     NSMutableArray *myPicks;
     NSArray *illegalChars;
     NSMutableArray *bestNames;
@@ -93,10 +93,41 @@ static float EPSILON = 1E-14;
         [userDefaults setObject:@"1" forKey:@"FILES_SAVED"];
     }
     
-    scoring = [userDefaults objectForKey:@"SCORING"];
     noCalc = false;
+    [self initializeRosters];
     players = [NSMutableArray array];
     PlayerIDs = [NSMutableDictionary dictionary];
+    [self loadImages];
+    [self loadMainInfo];
+    //[self loadAdjustedPlayers];
+}
+
+-(NSArray*) getPositionsArray {
+    NSMutableArray *positionsArray = [NSMutableArray new];
+    playerValueWeights = [NSMutableArray new];
+    
+    NSArray *roster = [[NSUserDefaults standardUserDefaults] objectForKey:@"ROSTER"];
+    
+    NSArray *allPositions = @[@"QB", @"RB", @"WR", @"TE", @"RB/WR",@"K", @"DST", @"IDP"];
+    NSArray *allPlayerValueWeights = @[@[@.25,@0.5, @1.0], @[@.3,@.5,@0.6,@0.8,@0.95,@1.0,@1.0],@[@.25,@.4,@0.5,@0.7,@0.9,@1.0,@1.0],@[@0.6,@1.0], @[@1.0], /*<- flex*/ @[@0.1], @[@0.1], @[@1.0]];
+    
+    for (int i=0; i<roster.count - 1 /* Last is bench */; i++) {
+        if(i == 4) {
+            continue; // skip flex
+        }
+        if([roster[i] integerValue] > 0) {
+            [positionsArray addObject:allPositions[i]];
+            [playerValueWeights addObject:allPlayerValueWeights[i]];
+        }
+    }
+    
+    return positionsArray;
+}
+
+-(void) initializeRosters {
+    
+    scoring = [userDefaults objectForKey:@"SCORING"];
+    
     myPositions = [self getPositionsArray];
     
     TOTAL_PICKS = 0;
@@ -107,8 +138,12 @@ static float EPSILON = 1E-14;
     
     numPositions = [NSMutableArray new];
     int numBenchPlayers = [roster[roster.count - 1] intValue];
+    int numFlexPlayers = [roster[4] intValue];
     for (int i=0; i<roster.count - 1; i++) {
         int totalPlayers = [roster[i] intValue];
+        if(i == 4 || totalPlayers == 0) {
+            continue; //skip flex
+        }
         // add bench players
         if((i == 0 || i == 3) && numBenchPlayers >= 4) { // quarterbacks and tight ends
             totalPlayers++;
@@ -118,41 +153,25 @@ static float EPSILON = 1E-14;
             } else {
                 totalPlayers += ceil((numBenchPlayers - 2)/2.0);
             }
+            totalPlayers += ceil(numFlexPlayers / 2.0);
         } else if(i == 2) { // if wr, we round bench players down
             if(numBenchPlayers < 4) {
                 totalPlayers += floor(numBenchPlayers / 2.0);
             } else {
                 totalPlayers += floor((numBenchPlayers - 2)/2.0);
             }
+            totalPlayers += floor(numFlexPlayers / 2.0);
         }
         [numPositions addObject: N(totalPlayers)];
     }
     
-    playerValueWeights = @[@[@0.5, @1.0], @[@0.6,@0.8,@0.95,@1.0,@1.0],@[@0.5,@0.7,@0.9,@1.0,@1.0],@[@0.6,@1.0], @[@1.0]];
-    numPositions = [NSMutableArray arrayWithArray:@[@2, @5, @5, @2, @1]];
+    NSLog(@"%@", numPositions);
+    //    numPositions = [NSMutableArray arrayWithArray:@[@2, @4, @4, @2]];
     myPicks = [self arrayWithAllValuesNil:TOTAL_PICKS];
     illegalChars = @[@"\""];
     bestNames = [self arrayWithAllValuesNil:TOTAL_PICKS+1];
     positions = myPositions;
-    [self loadImages];
-    [self loadMainInfo];
-    //[self loadAdjustedPlayers];
-}
 
--(NSArray*) getPositionsArray {
-    NSMutableArray *positionsArray = [NSMutableArray new];
-    
-    NSArray *roster = [[NSUserDefaults standardUserDefaults] objectForKey:@"ROSTER"];
-    
-    NSArray *allPositions = @[@"QB", @"RB", @"WR", @"TE", @"RB/WR", @"K", @"DST", @"IDP"];
-    
-    for (int i=0; i<roster.count - 1 /* Last is bench */; i++) {
-        if([roster[i] integerValue] > 0) {
-            [positionsArray addObject:allPositions[i]];
-        }
-    }
-    
-    return positionsArray;
 }
 
 -(void) reloadPicks {
@@ -334,7 +353,8 @@ static float EPSILON = 1E-14;
         //p.stdev = 1;
         NSUInteger mpcount = myPositions.count;
         for(int i=0; i<mpcount; i++) {
-            if([myPositions[i] isEqualToString:[row[2] stringByReplacingOccurrencesOfString:@"\"" withString:@""]]) {
+            if([myPositions[i] isEqualToString:[row[2] stringByReplacingOccurrencesOfString:@"\"" withString:@""]] ||
+               ([myPositions[i] isEqualToString:@"IDP"] && ([row[2] isEqualToString:@"DB"] || [row[2] isEqualToString:@"LB"] || [row[2] isEqualToString:@"DL"]))) {
                 p.position = i;
             }
         }
