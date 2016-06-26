@@ -42,8 +42,6 @@ static float EPSILON = 1E-14;
     
     NSUserDefaults *userDefaults;
     
-    CFTimeInterval startTime;
-    
     NSMutableArray *numPositions;
 }
 
@@ -109,7 +107,7 @@ static float EPSILON = 1E-14;
     NSArray *roster = [[NSUserDefaults standardUserDefaults] objectForKey:@"ROSTER"];
     
     NSArray *allPositions = @[@"QB", @"RB", @"WR", @"TE", @"RB/WR",@"K", @"DST", @"IDP"];
-    NSArray *allPlayerValueWeights = @[@[@.25,@0.5, @1.0], @[@.3,@.5,@0.6,@0.8,@0.95,@1.0,@1.0],@[@.25,@.4,@0.5,@0.7,@0.9,@1.0,@1.0],@[@0.6,@1.0], @[@1.0], /*<- flex*/ @[@0.1], @[@0.1], @[@1.0]];
+    NSArray *allPlayerValueWeights = @[@[@0.1, @0.1, @.1,@0.5, @1.0], @[@0.1, @0.1, @.3,@.5,@0.6,@0.8,@0.95,@1.0,@1.0],@[@0.1, @0.1, @.25,@.4,@0.5,@0.7,@0.9,@1.0,@1.0],@[@0.1, @0.1, @0.1, @0.6,@1.0], @[@1.0], /*<- flex*/ @[@0.05, @0.05, @0.1], @[@0.05, @0.1], @[@0.1, @0.1, @1.0]];
     
     for (int i=0; i<roster.count - 1 /* Last is bench */; i++) {
         if(i == 4) {
@@ -124,18 +122,8 @@ static float EPSILON = 1E-14;
     return positionsArray;
 }
 
--(void) initializeRosters {
-    
-    scoring = [userDefaults objectForKey:@"SCORING"];
-    
-    myPositions = [self getPositionsArray];
-    
-    TOTAL_PICKS = 0;
+-(void) makeNumPositions {
     NSArray *roster = [[NSUserDefaults standardUserDefaults] objectForKey:@"ROSTER"];
-    for (int i=0; i<roster.count; i++) {
-        TOTAL_PICKS += [roster[i] intValue];
-    }
-    
     numPositions = [NSMutableArray new];
     int numBenchPlayers = [roster[roster.count - 1] intValue];
     int numFlexPlayers = [roster[4] intValue];
@@ -164,8 +152,22 @@ static float EPSILON = 1E-14;
         }
         [numPositions addObject: N(totalPlayers)];
     }
+}
+
+-(void) initializeRosters {
     
-    NSLog(@"%@", numPositions);
+    scoring = [userDefaults objectForKey:@"SCORING"];
+    
+    myPositions = [self getPositionsArray];
+    
+    TOTAL_PICKS = 0;
+    NSArray *roster = [[NSUserDefaults standardUserDefaults] objectForKey:@"ROSTER"];
+    for (int i=0; i<roster.count; i++) {
+        TOTAL_PICKS += [roster[i] intValue];
+    }
+
+    [self makeNumPositions];
+    
     //    numPositions = [NSMutableArray arrayWithArray:@[@2, @4, @4, @2]];
     myPicks = [self arrayWithAllValuesNil:TOTAL_PICKS];
     illegalChars = @[@"\""];
@@ -191,6 +193,7 @@ static float EPSILON = 1E-14;
 
 -(void) makeCalculations {
     [self reloadPicks];
+    [self makeNumPositions];
     [self calculateValues:1];
 }
 
