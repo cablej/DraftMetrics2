@@ -25,6 +25,14 @@ class CustomScoringTableViewController: UITableViewController, UITextFieldDelega
     @IBOutlet var passing2PtConversionField: UITextField!
     @IBOutlet var rushing2PtConversionField: UITextField!
     @IBOutlet var fumblesLostField: UITextField!
+    @IBOutlet var passingCompletionsFirstField: UITextField!
+    @IBOutlet var passingCompletionsSecondField: UITextField!
+    @IBOutlet var extraPointMadeField: UITextField!
+    @IBOutlet var kickerOneField: UITextField!
+    @IBOutlet var kickerTwoField: UITextField!
+    @IBOutlet var kickerThreeField: UITextField!
+    @IBOutlet var kickerFourField: UITextField!
+    @IBOutlet var kickerFiveField: UITextField!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -67,12 +75,27 @@ class CustomScoringTableViewController: UITableViewController, UITextFieldDelega
         self.passing2PtConversionField.text = "\(scoring[8])"
         self.rushing2PtConversionField.text = "\(scoring[9])"
         self.fumblesLostField.text = "\(scoring[10])"
+        
+        
+        var completionsFirst = 1 / CFloat(Double(scoring[11] as! NSNumber))
+        if !completionsFirst.isFinite {
+            completionsFirst = 1;
+        }
+        self.passingCompletionsFirstField.text = String(format: "%.1f", completionsFirst)
+        self.passingCompletionsSecondField.text = CFloat(Double(scoring[11] as! NSNumber)) == 0 ? "0" : "1"
+        
+        self.extraPointMadeField.text = "\(scoring[12])"
+        self.kickerOneField.text = "\(scoring[13])"
+        self.kickerTwoField.text = "\(scoring[14])"
+        self.kickerThreeField.text = "\(scoring[15])"
+        self.kickerFourField.text = "\(scoring[16])"
+        self.kickerFiveField.text = "\(scoring[17])"
 
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {
         let newVals: [AnyObject] = [NSNumber(float: Float(passingYardsSecondField.text!)! / Float(passingYardsFirstField.text!)!),
-                                    passingTouchdownField.text!, interceptionField.text!, NSNumber(float: Float(rushingYardsSecondField.text!)! / Float(rushingYardsFirstField.text!)!), rushingTouchdownField.text!, NSNumber(float: Float(receptionsSecondField.text!)! / Float(receptionsFirstField.text!)!), NSNumber(float: Float(receivingYardsSecondField.text!)! / Float(receivingYardsFirstField.text!)!), receivingTouchdownField.text!, passing2PtConversionField.text!, rushing2PtConversionField.text!, fumblesLostField.text!]
+                                    passingTouchdownField.text!, interceptionField.text!, NSNumber(float: Float(rushingYardsSecondField.text!)! / Float(rushingYardsFirstField.text!)!), rushingTouchdownField.text!, NSNumber(float: Float(receptionsSecondField.text!)! / Float(receptionsFirstField.text!)!), NSNumber(float: Float(receivingYardsSecondField.text!)! / Float(receivingYardsFirstField.text!)!), receivingTouchdownField.text!, passing2PtConversionField.text!, rushing2PtConversionField.text!, fumblesLostField.text!, NSNumber(float: Float(passingCompletionsSecondField.text!)! / Float(passingCompletionsFirstField.text!)!), extraPointMadeField.text!, kickerOneField.text!, kickerTwoField.text!, kickerThreeField.text!, kickerFourField.text!, kickerFiveField.text!]
         defaults.setObject(newVals, forKey: "SCORING")
         Fantasy.sharedInstance().prepValues()
         self.navigationController?.popViewControllerAnimated(true)

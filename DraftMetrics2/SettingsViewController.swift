@@ -47,15 +47,21 @@ class SettingsViewController: UITableViewController {
     func updateDefaults() {
         
         if let numTeams = Int(numberOfTeamsTextField.text!) {
-            defaults.setInteger(numTeams, forKey: "NUM_TEAMS")
+            if numTeams >= 2 && numTeams <= 30 {
+                defaults.setInteger(numTeams, forKey: "NUM_TEAMS")
+            }
         }
         
         if let myPick = Int(myPickTextField.text!) {
-            defaults.setInteger(myPick, forKey: "MY_PICK")
+            if myPick >= 1 && myPick <= defaults.integerForKey("NUM_TEAMS") {
+                defaults.setInteger(myPick, forKey: "MY_PICK")
+            }
         }
         
         if let roundsPreviewed = Int(roundsPreviewedTextField.text!) {
-            defaults.setInteger(roundsPreviewed, forKey: "NUM_ROUNDS_IN_ADVANCE")
+            if roundsPreviewed >= 1 && roundsPreviewed <= 20 {
+                defaults.setInteger(roundsPreviewed, forKey: "NUM_ROUNDS_IN_ADVANCE")
+            }
         }
         
         defaults.setBool(bestAvailableSlider.on, forKey: "SHOW_BEST_AVAIL")

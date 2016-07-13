@@ -53,9 +53,9 @@ static float EPSILON = 1E-14;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         if([defaults objectForKey:@"NUM_TEAMS"] == nil) [defaults setObject:@8 forKey:@"NUM_TEAMS"];
         if([defaults objectForKey:@"MY_PICK"] == nil) [defaults setObject:@1 forKey:@"MY_PICK"];
-        if([defaults objectForKey:@"NUM_ROUNDS_IN_ADVANCE"] == nil) [defaults setObject:@2 forKey:@"NUM_ROUNDS_IN_ADVANCE"];
+        if([defaults objectForKey:@"NUM_ROUNDS_IN_ADVANCE"] == nil) [defaults setObject:@6 forKey:@"NUM_ROUNDS_IN_ADVANCE"];
         if([defaults objectForKey:@"SHOW_BEST_AVAIL"] == nil) [defaults setObject:@NO forKey:@"SHOW_BEST_AVAIL"];
-        if([defaults objectForKey:@"SCORING"] == nil) [defaults setObject:@[@.04, @4, @-2, @.1, @6, @0, @.1, @6, @1, @2, @-2] forKey:@"SCORING"];
+        if([defaults objectForKey:@"SCORING"] == nil) [defaults setObject:@[@.04, @4, @-2, @.1, @6, @0, @.1, @6, @1, @2, @-2, @0, @1, @3, @3, @3, @3, @3] forKey:@"SCORING"];
         if([defaults objectForKey:@"ROSTER"] == nil) [defaults setObject:@[@1, @2, @2, @1, @0, @1, @1, @0, @6] forKey:@"ROSTER"];
         
         int NUM_TEAMS = [[defaults objectForKey:@"NUM_TEAMS"] intValue];
@@ -378,11 +378,20 @@ static float EPSILON = 1E-14;
             if(p.position == 0) p.points += [row[19] floatValue]*[scoring[8] floatValue]; //twoPts PASS
             else p.points += [row[19] floatValue]*[scoring[9] floatValue]; //twoPts RUSH / REC
             p.points += [row[20] floatValue]*[scoring[10] floatValue]; //fumbles
+            
+            p.points += [row[21] floatValue]*[scoring[11] floatValue]; //QB completions
+            
+            p.points += [row[22] floatValue]*[scoring[12] floatValue]; //kicker extra points
+            p.points += [row[23] floatValue]*[scoring[13] floatValue]; //kicker 1
+            p.points += [row[24] floatValue]*[scoring[14] floatValue]; //kicker 2
+            p.points += [row[25] floatValue]*[scoring[15] floatValue]; //kicker 3
+            p.points += [row[26] floatValue]*[scoring[16] floatValue]; //kicker 4
+            p.points += [row[27] floatValue]*[scoring[17] floatValue]; //kicker 4
         } else {
             p.points = [row[7] floatValue];
         }
         
-        if(p.position > 3) {
+        if([row[2] isEqualToString:@"DST"] || ([row[2] isEqualToString:@"DB"] || [row[2] isEqualToString:@"LB"] || [row[2] isEqualToString:@"DL"])) {
             p.points = [row[7] floatValue];
         }
         
