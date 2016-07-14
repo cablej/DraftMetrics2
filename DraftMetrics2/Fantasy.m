@@ -43,6 +43,7 @@ static float EPSILON = 1E-14;
     NSUserDefaults *userDefaults;
     
     NSMutableArray *numPositions;
+    
 }
 
 + (Fantasy*)sharedInstance {
@@ -53,7 +54,7 @@ static float EPSILON = 1E-14;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         if([defaults objectForKey:@"NUM_TEAMS"] == nil) [defaults setObject:@8 forKey:@"NUM_TEAMS"];
         if([defaults objectForKey:@"MY_PICK"] == nil) [defaults setObject:@1 forKey:@"MY_PICK"];
-        if([defaults objectForKey:@"NUM_ROUNDS_IN_ADVANCE"] == nil) [defaults setObject:@6 forKey:@"NUM_ROUNDS_IN_ADVANCE"];
+        if([defaults objectForKey:@"NUM_ROUNDS_IN_ADVANCE"] == nil) [defaults setObject:@4 forKey:@"NUM_ROUNDS_IN_ADVANCE"];
         if([defaults objectForKey:@"SHOW_BEST_AVAIL"] == nil) [defaults setObject:@NO forKey:@"SHOW_BEST_AVAIL"];
         if([defaults objectForKey:@"SCORING"] == nil) [defaults setObject:@[@.04, @4, @-2, @.1, @6, @0, @.1, @6, @1, @2, @-2, @0, @1, @3, @3, @3, @3, @3] forKey:@"SCORING"];
         if([defaults objectForKey:@"ROSTER"] == nil) [defaults setObject:@[@1, @2, @2, @1, @0, @1, @1, @0, @6] forKey:@"ROSTER"];
@@ -62,6 +63,7 @@ static float EPSILON = 1E-14;
         int NUM_PICK = [[defaults objectForKey:@"MY_PICK"] intValue];
         int NUM_ROUNDS_IN_ADVANCE = [[defaults objectForKey:@"NUM_ROUNDS_IN_ADVANCE"] intValue];
         sharedInstance = [[self alloc] initWithNumTeams:NUM_TEAMS withNumPick:NUM_PICK withNumRoundsInAdvance:NUM_ROUNDS_IN_ADVANCE withCustomScoring:[defaults objectForKey:@"SCORING"]];
+        
     });
     return sharedInstance;
 }
