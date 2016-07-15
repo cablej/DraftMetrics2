@@ -30,41 +30,51 @@ class DraftMetricsHelper: NSObject, SKStoreProductViewControllerDelegate, MFMail
     }
     
     class func checkReviewAlert(viewController: UIViewController) {
-        if(Fantasy.sharedInstance().draftHasFinished()) {
-            let alert = UIAlertController(title: "Are you loving DraftMetrics?", message: nil, preferredStyle: .Alert)
+        if !NSUserDefaults.standardUserDefaults().boolForKey("ALERT_PRESENTED") {
+            let numTimes = NSUserDefaults.standardUserDefaults().integerForKey("NUM_CHECKS")
+            if numTimes >= 10 {
+                presentAlert(viewController)
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "ALERT_PRESENTED")
+            } else {
+                NSUserDefaults.standardUserDefaults().setInteger(numTimes+1, forKey: "NUM_CHECKS")
+            }
+        }
+    }
+    
+    class func presentAlert(viewController: UIViewController) {
+        let alert = UIAlertController(title: "Are you loving DraftMetrics?", message: nil, preferredStyle: .Alert)
         
-            alert.addAction(UIAlertAction(title: "Not really.", style: .Default, handler: { (action) in
-                let alert = UIAlertController(title: "Want to contact us?", message: "We value your feedback.", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "No thanks.", style: .Default, handler: nil))
-                alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) in
-                    DraftMetricsHelper.sharedInstance.mailer.mailComposeDelegate = DraftMetricsHelper.sharedInstance
-                    DraftMetricsHelper.sharedInstance.mailer.setSubject("DraftMetrics Feedback")
-                    
-                    DraftMetricsHelper.sharedInstance.mailer.setToRecipients(["jackcableapps@gmail.com"])
-                    viewController.presentViewController(DraftMetricsHelper.sharedInstance.mailer, animated: true, completion: nil)
-                }))
-                viewController.presentViewController(alert, animated: true, completion: nil)
-            }))
-            alert.addAction(UIAlertAction(title: "Yes!", style: .Default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Not really.", style: .Default, handler: { (action) in
+            let alert = UIAlertController(title: "Want to contact us?", message: "We value your feedback.", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "No thanks.", style: .Default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) in
+                DraftMetricsHelper.sharedInstance.mailer.mailComposeDelegate = DraftMetricsHelper.sharedInstance
+                DraftMetricsHelper.sharedInstance.mailer.setSubject("DraftMetrics Feedback")
                 
-                let alert = UIAlertController(title: "Want to review the app?", message: "We value your feedback.", preferredStyle: .Alert)
-                alert.addAction(UIAlertAction(title: "No thanks.", style: .Default, handler: nil))
-                alert.addAction(UIAlertAction(title: "Sure!", style: .Default, handler: { (action) in
-                    
-                    let productParameters: [String:AnyObject]! = [SKStoreProductParameterITunesItemIdentifier : "907590482"]
-                    
-                    DraftMetricsHelper.sharedInstance.storeViewController.delegate = DraftMetricsHelper.sharedInstance
-                    
-                    DraftMetricsHelper.sharedInstance.storeViewController.loadProductWithParameters(productParameters, completionBlock: nil)
-                    
-                    
-                    viewController.presentViewController(DraftMetricsHelper.sharedInstance.storeViewController, animated: true, completion: nil)
-                    
-                }))
-                viewController.presentViewController(alert, animated: true, completion: nil)
+                DraftMetricsHelper.sharedInstance.mailer.setToRecipients(["jackcableapps@gmail.com"])
+                viewController.presentViewController(DraftMetricsHelper.sharedInstance.mailer, animated: true, completion: nil)
             }))
             viewController.presentViewController(alert, animated: true, completion: nil)
-        }
+        }))
+        alert.addAction(UIAlertAction(title: "Yes!", style: .Default, handler: { (action) in
+            
+            let alert = UIAlertController(title: "Want to review the app?", message: "We value your feedback.", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "No thanks.", style: .Default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Sure!", style: .Default, handler: { (action) in
+                
+                let productParameters: [String:AnyObject]! = [SKStoreProductParameterITunesItemIdentifier : "907590482"]
+                
+                DraftMetricsHelper.sharedInstance.storeViewController.delegate = DraftMetricsHelper.sharedInstance
+                
+                DraftMetricsHelper.sharedInstance.storeViewController.loadProductWithParameters(productParameters, completionBlock: nil)
+                
+                
+                viewController.presentViewController(DraftMetricsHelper.sharedInstance.storeViewController, animated: true, completion: nil)
+                
+            }))
+            viewController.presentViewController(alert, animated: true, completion: nil)
+        }))
+        viewController.presentViewController(alert, animated: true, completion: nil)
     }
     
     func productViewControllerDidFinish(viewController: SKStoreProductViewController) {

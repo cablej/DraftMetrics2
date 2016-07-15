@@ -93,6 +93,8 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
         super.viewDidAppear(animated)
         NUM_ROUNDS_IN_ADVANCE = Int((defaults.objectForKey("NUM_ROUNDS_IN_ADVANCE")?.intValue)!)
         restartController()
+        
+        DraftMetricsHelper.checkReviewAlert(self)
     }
     
     func restartController() {

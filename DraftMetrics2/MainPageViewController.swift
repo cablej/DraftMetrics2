@@ -137,7 +137,6 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
         
         getRound()
         
-        DraftMetricsHelper.checkReviewAlert(self)
     }
 
     @IBAction func onSearchBarEditingChanged(sender: UITextField) {

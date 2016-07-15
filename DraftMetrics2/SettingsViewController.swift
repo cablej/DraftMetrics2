@@ -94,4 +94,8 @@ class SettingsViewController: UITableViewController {
         Fantasy.sharedInstance().saveFilesToDocuments()
         Fantasy.sharedInstance().prepValues()
     }
+    
+    @IBAction func onReviewButtonTapped(sender: AnyObject) {
+        DraftMetricsHelper.presentAlert(self)
+    }
 }
