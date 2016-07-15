@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 class DraftHistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -32,6 +33,7 @@ class DraftHistoryViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        Answers.logCustomEventWithName("DraftHistoryPageViewed", customAttributes: ["currentPick":Int(fantasy.getCurrentPick())])
         refreshData()
     }
     

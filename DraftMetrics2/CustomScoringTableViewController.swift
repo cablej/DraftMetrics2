@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 class CustomScoringTableViewController: UITableViewController, UITextFieldDelegate {
 
@@ -91,6 +92,11 @@ class CustomScoringTableViewController: UITableViewController, UITextFieldDelega
         self.kickerFourField.text = "\(scoring[16])"
         self.kickerFiveField.text = "\(scoring[17])"
 
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Answers.logCustomEventWithName("CustomScoringPageViewed", customAttributes: [:])
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 class CustomRosterViewController: UITableViewController {
     
@@ -27,6 +28,11 @@ class CustomRosterViewController: UITableViewController {
             positionsOutletCollection[i].text = "\(scoring[i])"
         }
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        Answers.logCustomEventWithName("CustomRosterPageViewed", customAttributes: [:])
     }
     
     @IBAction func saveButtonTapped(sender: AnyObject) {

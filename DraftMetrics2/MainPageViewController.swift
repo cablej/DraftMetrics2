@@ -36,6 +36,8 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("IntroPage")
             self.presentViewController(vc, animated: true, completion: nil)
             
+            Answers.logCustomEventWithName("AppOpenedFirstTime", customAttributes: ["orientationIsLandscape": UIDevice.currentDevice().orientation.isLandscape])
+            
             defaults.setBool(true, forKey: "hasLoaded")
         }
         
@@ -61,6 +63,8 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        Answers.logCustomEventWithName("MainPageViewed", customAttributes: ["currentPick":Int(fantasy.getCurrentPick())])
         refreshData()
     }
 

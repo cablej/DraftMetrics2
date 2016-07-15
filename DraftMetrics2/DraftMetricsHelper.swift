@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import Crashlytics
 import MessageUI
 
 class DraftMetricsHelper: NSObject, SKStoreProductViewControllerDelegate, MFMailComposeViewControllerDelegate {
@@ -34,6 +35,7 @@ class DraftMetricsHelper: NSObject, SKStoreProductViewControllerDelegate, MFMail
             let numTimes = NSUserDefaults.standardUserDefaults().integerForKey("NUM_CHECKS")
             if numTimes >= 10 {
                 presentAlert(viewController)
+                Answers.logCustomEventWithName("AlertPresented", customAttributes: [:])
                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: "ALERT_PRESENTED")
             } else {
                 NSUserDefaults.standardUserDefaults().setInteger(numTimes+1, forKey: "NUM_CHECKS")
@@ -45,9 +47,11 @@ class DraftMetricsHelper: NSObject, SKStoreProductViewControllerDelegate, MFMail
         let alert = UIAlertController(title: "Are you loving DraftMetrics?", message: nil, preferredStyle: .Alert)
         
         alert.addAction(UIAlertAction(title: "Not really.", style: .Default, handler: { (action) in
+            Answers.logCustomEventWithName("UserDidNotLove", customAttributes: ["currentPick":Int(Fantasy.sharedInstance().getCurrentPick())])
             let alert = UIAlertController(title: "Want to contact us?", message: "We value your feedback.", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "No thanks.", style: .Default, handler: nil))
             alert.addAction(UIAlertAction(title: "Yes", style: .Default, handler: { (action) in
+                Answers.logCustomEventWithName("UserClickedContact", customAttributes: [:])
                 DraftMetricsHelper.sharedInstance.mailer.mailComposeDelegate = DraftMetricsHelper.sharedInstance
                 DraftMetricsHelper.sharedInstance.mailer.setSubject("DraftMetrics Feedback")
                 
@@ -58,10 +62,12 @@ class DraftMetricsHelper: NSObject, SKStoreProductViewControllerDelegate, MFMail
         }))
         alert.addAction(UIAlertAction(title: "Yes!", style: .Default, handler: { (action) in
             
+            Answers.logCustomEventWithName("UserDidLove", customAttributes: [:])
             let alert = UIAlertController(title: "Want to review the app?", message: "We value your feedback.", preferredStyle: .Alert)
             alert.addAction(UIAlertAction(title: "No thanks.", style: .Default, handler: nil))
             alert.addAction(UIAlertAction(title: "Sure!", style: .Default, handler: { (action) in
                 
+                Answers.logCustomEventWithName("UserClickedReview", customAttributes: ["currentPick":Int(Fantasy.sharedInstance().getCurrentPick())])
                 let productParameters: [String:AnyObject]! = [SKStoreProductParameterITunesItemIdentifier : "907590482"]
                 
                 DraftMetricsHelper.sharedInstance.storeViewController.delegate = DraftMetricsHelper.sharedInstance

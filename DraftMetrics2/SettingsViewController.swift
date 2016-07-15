@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 class SettingsViewController: UITableViewController {
     
@@ -23,6 +24,7 @@ class SettingsViewController: UITableViewController {
         
         DraftMetricsHelper.initializeViewController(self)
         
+        Answers.logCustomEventWithName("SettingsPageViewed", customAttributes: [:])
         addDoneButton()
     }
     
@@ -97,5 +99,6 @@ class SettingsViewController: UITableViewController {
     
     @IBAction func onReviewButtonTapped(sender: AnyObject) {
         DraftMetricsHelper.presentAlert(self)
+        Answers.logCustomEventWithName("ReviewButtonTapped", customAttributes: [:])
     }
 }

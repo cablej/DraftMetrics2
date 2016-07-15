@@ -8,6 +8,7 @@
 
 import UIKit
 import HMSegmentedControl
+import Crashlytics
 
 class MyPickViewController: UIViewController, UITableViewDataSource {
     
@@ -93,6 +94,7 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
         super.viewDidAppear(animated)
         NUM_ROUNDS_IN_ADVANCE = Int((defaults.objectForKey("NUM_ROUNDS_IN_ADVANCE")?.intValue)!)
         restartController()
+        Answers.logCustomEventWithName("MyPickPageViewed", customAttributes: ["currentPick":Int(fantasy.getCurrentPick())])
         
         DraftMetricsHelper.checkReviewAlert(self)
     }

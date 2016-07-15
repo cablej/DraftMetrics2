@@ -23,6 +23,8 @@
             <string>Monda-Bold</string>
             <string>Monda-Bold</string>
             <string>Monda-Bold</string>
+            <string>Monda-Bold</string>
+            <string>Monda-Bold</string>
         </mutableArray>
         <mutableArray key="Monda-Regular.ttf">
             <string>Monda-Regular</string>
@@ -1470,6 +1472,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Say goodbye to cheat sheets." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Id-jX-sQP">
+                                <rect key="frame" x="20" y="317" width="366" height="74"/>
+                                <fontDescription key="fontDescription" name="Monda-Bold" family="Monda" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H03-Be-p0c">
                                 <rect key="frame" x="431" y="487" width="120" height="60"/>
                                 <constraints>
@@ -1484,6 +1492,12 @@
                                     <segue destination="49e-Tb-3d3" kind="show" id="a2f-fU-nIz"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To begin, configure your league settings." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgb-ys-UZT">
+                                <rect key="frame" x="20" y="388" width="509" height="74"/>
+                                <fontDescription key="fontDescription" name="Monda-Bold" family="Monda" pointSize="26"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
