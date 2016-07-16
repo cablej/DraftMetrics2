@@ -24,6 +24,8 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
     
     var hasLoaded = false
     
+    @IBOutlet var helpBarButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +33,9 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
         searchTextField.delegate = self
         
         DraftMetricsHelper.initializeViewController(self)
+        
+        helpBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!], forState: .Normal)
+        
         
         if(defaults.objectForKey("hasLoaded") == nil || defaults.boolForKey("hasLoaded") == false) {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("IntroPage")

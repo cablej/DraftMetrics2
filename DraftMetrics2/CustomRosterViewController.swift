@@ -14,6 +14,7 @@ class CustomRosterViewController: UITableViewController {
     let defaults = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet var positionsOutletCollection: [UITextField]!
+    @IBOutlet var saveBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,8 @@ class CustomRosterViewController: UITableViewController {
         DraftMetricsHelper.initializeViewController(self)
         
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        saveBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!], forState: .Normal)
         
         var scoring: [AnyObject] = (defaults.objectForKey("ROSTER") as! [AnyObject])
         
@@ -30,8 +33,8 @@ class CustomRosterViewController: UITableViewController {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         Answers.logCustomEventWithName("CustomRosterPageViewed", customAttributes: [:])
     }
     

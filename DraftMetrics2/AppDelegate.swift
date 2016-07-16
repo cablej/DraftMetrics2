@@ -16,7 +16,7 @@ import Crashlytics
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let kUserHasOnboardedKey = "user_has_onboarded"
+//    let kUserHasOnboardedKey = "user_has_onboarded"
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -26,41 +26,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.sharedSDK().debug = true
         Fabric.with([Crashlytics.self])
         
-        
-        let userHasOnboarded = false//NSUserDefaults.standardUserDefaults().boolForKey(kUserHasOnboardedKey)
-        
-        if userHasOnboarded {
-            return true
-        } else {
-            self.window?.rootViewController = generateStandardOnboardingVC()
-        }
-        
-        self.window?.makeKeyAndVisible()
+//        
+//        let userHasOnboarded = false//NSUserDefaults.standardUserDefaults().boolForKey(kUserHasOnboardedKey)
+//        
+//        if userHasOnboarded {
+//            return true
+//        } else {
+//            self.window?.rootViewController = generateStandardOnboardingVC()
+//        }
+//        
+//        self.window?.makeKeyAndVisible()
 
         return true
     }
-    
-    func setUpNormalViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("IntroPage") as! IntroPageViewController
-        self.window?.rootViewController!.presentViewController(vc, animated: true, completion: nil)
-        
-        NSUserDefaults.standardUserDefaults().setObject(true, forKey: kUserHasOnboardedKey)
-    }
-    
-    func generateStandardOnboardingVC() -> OnboardingViewController {
-        let firstPage = OnboardingContentViewController(title: "Welcome to DraftMetrics.", body: "Say goodbye to cheatsheets. Simply input your draft and DraftMetrics will take care of the rest, calculating your optimal picks and previewing rounds ahead.", image: UIImage(named: "icon_main50"), buttonText: "Get Started") {
-        }
-        firstPage.movesToNextViewController = true
-        let secondPage = OnboardingContentViewController(title: "Configure your draft in the Settings tab.", body: "Customize league size, your pick number, scoring and rosters.", image: UIImage(named: "icon_main50"), buttonText: "Continue") {
-            self.setUpNormalViewController()
-        }
-        let onboardingViewController = OnboardingViewController(backgroundImage: UIImage(named: "Football Image"), contents: [firstPage, secondPage])
-        onboardingViewController.shouldBlurBackground = true;
-        onboardingViewController.shouldMaskBackground = true;
-        onboardingViewController.pageControl.hidden = false;
-        return onboardingViewController
-    }
+//    
+//    func setUpNormalViewController() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewControllerWithIdentifier("IntroPage") as! IntroPageViewController
+//        self.window?.rootViewController!.presentViewController(vc, animated: true, completion: nil)
+//        
+//        NSUserDefaults.standardUserDefaults().setObject(true, forKey: kUserHasOnboardedKey)
+//    }
+//    
+//    func generateStandardOnboardingVC() -> OnboardingViewController {
+//        let firstPage = OnboardingContentViewController(title: "Welcome to DraftMetrics.", body: "Say goodbye to cheatsheets. Simply input your draft and DraftMetrics will take care of the rest, calculating your optimal picks and previewing rounds ahead.", image: UIImage(named: "icon_main50"), buttonText: "Get Started") {
+//        }
+//        firstPage.movesToNextViewController = true
+//        let secondPage = OnboardingContentViewController(title: "Configure your draft in the Settings tab.", body: "Customize league size, your pick number, scoring and rosters.", image: UIImage(named: "icon_main50"), buttonText: "Continue") {
+//            self.setUpNormalViewController()
+//        }
+//        let onboardingViewController = OnboardingViewController(backgroundImage: UIImage(named: "Football Image"), contents: [firstPage, secondPage])
+//        onboardingViewController.shouldBlurBackground = true;
+//        onboardingViewController.shouldMaskBackground = true;
+//        onboardingViewController.pageControl.hidden = false;
+//        return onboardingViewController
+//    }
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

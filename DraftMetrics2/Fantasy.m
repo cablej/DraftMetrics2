@@ -532,9 +532,9 @@ static float EPSILON = 1E-14;
             [self clearValues];
             [self calculateValues:pick];
             if(pick > [self getPick:round :myPick]) {
-                [self calcBestDraft:[NSMutableArray arrayWithArray:numPositions] :round+1];
+                [self calcBestDraft :round+1];
             } else {
-                [self calcBestDraft:numPositions :round];
+                [self calcBestDraft :round];
             }
             //[self showCurrentState : numPositions : pick];
             return;
@@ -580,10 +580,9 @@ static float EPSILON = 1E-14;
     }
 }
 
--(void) calcBestDraft : (NSMutableArray *) myNumPositions : (int) myRound {
-    NSMutableArray *numPositions = [NSMutableArray arrayWithArray:myNumPositions];
+-(void) calcBestDraft : (int) myRound {
     int pick = MY_PICK;
-    [self calcBest:numPositions :myRound :pick : 0];
+    [self calcBest :myRound :pick : 0];
     NSUInteger bcount = bestNames.count;
     for(int m = 1; m < bcount; m++) {
         //int currPick = [self getPick:m :pick];
@@ -596,7 +595,7 @@ static float EPSILON = 1E-14;
     }
 }
 
--(float) calcBest : (NSMutableArray*) numPositions : (int) round : (int) pick : (int) numDeep {
+-(float) calcBest : (int) round : (int) pick : (int) numDeep {
     if(round > TOTAL_PICKS) return 0;
     float optimal = 0;
     int currPick = [self getPick:round :pick];
@@ -611,7 +610,7 @@ static float EPSILON = 1E-14;
             numPositions[i] = N([numPositions[i] intValue] - 1);
             float total = weight*[bestValues[pos][currPick] floatValue];
             if(numDeep <= NUM_ROUNDS_IN_ADVANCE)
-                total = weight*[bestValues[pos][currPick] floatValue] + [self calcBest:numPositions :round+1 :pick : numDeep+1];
+                total = weight*[bestValues[pos][currPick] floatValue] + [self calcBest :round+1 :pick : numDeep+1];
             numPositions[i] = N([numPositions[i] intValue] + 1);
             if(total > optimal) {
                 bestToReturn[round][i] = [NSString stringWithFormat:@"%i", pos];

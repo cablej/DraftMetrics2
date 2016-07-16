@@ -35,6 +35,8 @@ class CustomScoringTableViewController: UITableViewController, UITextFieldDelega
     @IBOutlet var kickerFourField: UITextField!
     @IBOutlet var kickerFiveField: UITextField!
     
+    @IBOutlet var saveBarButton: UIBarButtonItem!
+    
     let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
@@ -43,6 +45,8 @@ class CustomScoringTableViewController: UITableViewController, UITextFieldDelega
         DraftMetricsHelper.initializeViewController(self)
         
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
+        saveBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!], forState: .Normal)
         
         var scoring: [AnyObject] = (defaults.objectForKey("SCORING") as! [AnyObject])
         var passingFirst = 1 / CFloat(Double(scoring[0] as! NSNumber))
@@ -94,8 +98,8 @@ class CustomScoringTableViewController: UITableViewController, UITextFieldDelega
 
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         Answers.logCustomEventWithName("CustomScoringPageViewed", customAttributes: [:])
     }
     

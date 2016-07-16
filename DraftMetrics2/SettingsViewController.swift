@@ -9,7 +9,7 @@
 import UIKit
 import Crashlytics
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet var numberOfTeamsTextField: UITextField!
     @IBOutlet var myPickTextField: UITextField!
@@ -17,19 +17,29 @@ class SettingsViewController: UITableViewController {
     
     @IBOutlet var bestAvailableSlider: UISwitch!
     
+    @IBOutlet var saveBarButton: UIBarButtonItem!
+    @IBOutlet var reviewBarButton: UIBarButtonItem!
+    
     let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        numberOfTeamsTextField.delegate = self
+        myPickTextField.delegate = self
+        roundsPreviewedTextField.delegate = self
+        
         DraftMetricsHelper.initializeViewController(self)
+        
+        saveBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!], forState: .Normal)
+        reviewBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!], forState: .Normal)
         
         Answers.logCustomEventWithName("SettingsPageViewed", customAttributes: [:])
         addDoneButton()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         numberOfTeamsTextField.text = "\(defaults.objectForKey("NUM_TEAMS")!)"
         myPickTextField.text = "\(defaults.objectForKey("MY_PICK")!)"
@@ -85,6 +95,7 @@ class SettingsViewController: UITableViewController {
                                             target: nil, action: nil)
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: .Done,
                                             target: view, action: #selector(UIView.endEditing(_:)))
+        doneBarButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!], forState: .Normal)
         doneBarButton.tintColor = UIColor(red: 216/255, green: 0, blue: 21/255, alpha: 1)
         keyboardToolbar.items = [flexBarButton, doneBarButton]
         numberOfTeamsTextField.inputAccessoryView = keyboardToolbar
@@ -101,4 +112,10 @@ class SettingsViewController: UITableViewController {
         DraftMetricsHelper.presentAlert(self)
         Answers.logCustomEventWithName("ReviewButtonTapped", customAttributes: [:])
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }

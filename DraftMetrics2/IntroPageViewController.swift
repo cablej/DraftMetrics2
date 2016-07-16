@@ -35,4 +35,10 @@ class IntroPageViewController: UIViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? UITabBarController {
+            vc.selectedIndex = 3;
+        }
+    }
+    
 }
