@@ -11,6 +11,7 @@ import UIKit
 import Fabric
 import Onboard
 import Crashlytics
+import Branch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,44 +24,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UITabBar.appearance().tintColor = UIColor.whiteColor()
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        Fabric.sharedSDK().debug = true
+        Fabric.sharedSDK().debug = false
         Fabric.with([Crashlytics.self])
         
-//        
-//        let userHasOnboarded = false//NSUserDefaults.standardUserDefaults().boolForKey(kUserHasOnboardedKey)
-//        
-//        if userHasOnboarded {
-//            return true
-//        } else {
-//            self.window?.rootViewController = generateStandardOnboardingVC()
-//        }
-//        
-//        self.window?.makeKeyAndVisible()
+        Branch.getInstance().initSessionWithLaunchOptions(launchOptions, andRegisterDeepLinkHandler: { params, error in
+            guard error != nil else { return }
+            guard let userDidClick = params?["+clicked_branch_link"] as? Bool else { return }
+            if userDidClick {
+                print("deep link data: ", params)
+            }
+        })
 
         return true
     }
-//    
-//    func setUpNormalViewController() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewControllerWithIdentifier("IntroPage") as! IntroPageViewController
-//        self.window?.rootViewController!.presentViewController(vc, animated: true, completion: nil)
-//        
-//        NSUserDefaults.standardUserDefaults().setObject(true, forKey: kUserHasOnboardedKey)
-//    }
-//    
-//    func generateStandardOnboardingVC() -> OnboardingViewController {
-//        let firstPage = OnboardingContentViewController(title: "Welcome to DraftMetrics.", body: "Say goodbye to cheatsheets. Simply input your draft and DraftMetrics will take care of the rest, calculating your optimal picks and previewing rounds ahead.", image: UIImage(named: "icon_main50"), buttonText: "Get Started") {
-//        }
-//        firstPage.movesToNextViewController = true
-//        let secondPage = OnboardingContentViewController(title: "Configure your draft in the Settings tab.", body: "Customize league size, your pick number, scoring and rosters.", image: UIImage(named: "icon_main50"), buttonText: "Continue") {
-//            self.setUpNormalViewController()
-//        }
-//        let onboardingViewController = OnboardingViewController(backgroundImage: UIImage(named: "Football Image"), contents: [firstPage, secondPage])
-//        onboardingViewController.shouldBlurBackground = true;
-//        onboardingViewController.shouldMaskBackground = true;
-//        onboardingViewController.pageControl.hidden = false;
-//        return onboardingViewController
-//    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        Branch.getInstance().handleDeepLink(url)
+        return true
+    }
+    
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        Branch.getInstance().continueUserActivity(userActivity)
+        return true
+    }
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

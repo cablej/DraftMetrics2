@@ -8,6 +8,8 @@
 
 import UIKit
 import Crashlytics
+import Branch
+
 
 class SettingsViewController: UITableViewController, UITextFieldDelegate {
     
@@ -19,6 +21,9 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet var saveBarButton: UIBarButtonItem!
     @IBOutlet var reviewBarButton: UIBarButtonItem!
+    @IBOutlet var shareBarButton: UIBarButtonItem!
+    
+    var branchUniversalObject: BranchUniversalObject!
     
     let defaults = NSUserDefaults.standardUserDefaults()
     
@@ -33,9 +38,24 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         
         saveBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!], forState: .Normal)
         reviewBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!], forState: .Normal)
+        shareBarButton.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Monda-Bold", size: 16)!], forState: .Normal)
         
         Answers.logCustomEventWithName("SettingsPageViewed", customAttributes: [:])
         addDoneButton()
+        
+        // Initialize a Branch Universal Object for the page the user is viewing
+        branchUniversalObject = BranchUniversalObject()
+        
+        // Define the content that the object represents
+        branchUniversalObject.title = "DraftMetrics"
+        branchUniversalObject.contentDescription = "DraftMetrics is the ultimate Fantasy Football draft tool."
+        branchUniversalObject.imageUrl  = "http://i.imgur.com/iNxFi1y.png"
+        // Trigger a view on the content for analytics tracking
+        branchUniversalObject.registerView()
+        
+        // List on Apple Spotlight
+        branchUniversalObject.listOnSpotlight()
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -118,4 +138,18 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
+    @IBAction func onShareButtonTapped(sender: AnyObject) {
+        let linkProperties = BranchLinkProperties()
+        linkProperties.feature = "sharing"
+        
+        // Show the share sheet for the content you want the user to share. A link will be automatically created and put in the message.
+        branchUniversalObject.showShareSheetWithLinkProperties(linkProperties,
+           andShareText: "I'm drafting my dream team with DraftMetrics. Check it out!",
+           fromViewController: self,
+           completion: { (activityType, completed) in
+            if (completed) {
+                // This code path is executed if a successful share occurs
+            }
+        })
+    }
 }

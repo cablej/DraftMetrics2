@@ -48,6 +48,7 @@
 		D12799BB1D011D79009CCD93 /* PlayerIdent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerIdent.h; sourceTree = "<group>"; };
 		D12799BC1D011D79009CCD93 /* PlayerIdent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerIdent.m; sourceTree = "<group>"; };
 		D12799C21D0123B6009CCD93 /* Monda-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Monda-Bold.ttf"; sourceTree = "<group>"; };
+		D135E8181D39BCC2005B4844 /* DraftMetrics.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DraftMetrics.entitlements; sourceTree = "<group>"; };
 		D148CD961D0061C10047E559 /* DraftMetricsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftMetricsHelper.swift; sourceTree = "<group>"; };
 		D148CD981D0062180047E559 /* DraftHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraftHistoryViewController.swift; sourceTree = "<group>"; };
 		D148CD9A1D00624E0047E559 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +190,7 @@
 		D16A80731CFF0E4D00C2EC89 = {
 			isa = PBXGroup;
 			children = (
+				D135E8181D39BCC2005B4844 /* DraftMetrics.entitlements */,
 				D16A807E1CFF0E4D00C2EC89 /* DraftMetrics2 */,
 				D16A807D1CFF0E4D00C2EC89 /* Products */,
 				CC1484832070AEC5D2D8459E /* Pods */,
@@ -264,6 +266,12 @@
 				TargetAttributes = {
 					D16A807B1CFF0E4D00C2EC89 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = W9L85QEFSW;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -500,6 +508,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DraftMetrics.entitlements;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = DraftMetrics2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -517,6 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DraftMetrics.entitlements;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = DraftMetrics2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

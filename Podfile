@@ -4,5 +4,6 @@ target 'DraftMetrics' do
   pod 'HMSegmentedControl'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'Branch'
   use_frameworks!
 end
