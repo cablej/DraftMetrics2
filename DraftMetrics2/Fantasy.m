@@ -381,14 +381,17 @@ static float EPSILON = 1E-14;
             else p.points += [row[19] floatValue]*[scoring[9] floatValue]; //twoPts RUSH / REC
             p.points += [row[20] floatValue]*[scoring[10] floatValue]; //fumbles
             
-            p.points += [row[21] floatValue]*[scoring[11] floatValue]; //QB completions
+            if(row.count > 21) {
+                p.points += [row[21] floatValue]*[scoring[11] floatValue]; //QB completions
+                
+                p.points += [row[22] floatValue]*[scoring[12] floatValue]; //kicker extra points
+                p.points += [row[23] floatValue]*[scoring[13] floatValue]; //kicker 1
+                p.points += [row[24] floatValue]*[scoring[14] floatValue]; //kicker 2
+                p.points += [row[25] floatValue]*[scoring[15] floatValue]; //kicker 3
+                p.points += [row[26] floatValue]*[scoring[16] floatValue]; //kicker 4
+                p.points += [row[27] floatValue]*[scoring[17] floatValue]; //kicker 4
+            }
             
-            p.points += [row[22] floatValue]*[scoring[12] floatValue]; //kicker extra points
-            p.points += [row[23] floatValue]*[scoring[13] floatValue]; //kicker 1
-            p.points += [row[24] floatValue]*[scoring[14] floatValue]; //kicker 2
-            p.points += [row[25] floatValue]*[scoring[15] floatValue]; //kicker 3
-            p.points += [row[26] floatValue]*[scoring[16] floatValue]; //kicker 4
-            p.points += [row[27] floatValue]*[scoring[17] floatValue]; //kicker 4
         } else {
             p.points = [row[7] floatValue];
         }
