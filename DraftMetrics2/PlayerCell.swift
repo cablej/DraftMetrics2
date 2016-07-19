@@ -13,7 +13,6 @@ class PlayerCell: UITableViewCell {
     @IBOutlet var selectButton: UIButton?
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var teamLabel: UILabel!
-    @IBOutlet var playerImage: UIImageView!
     
     override func awakeFromNib() {
         if let select = selectButton {

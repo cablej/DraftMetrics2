@@ -81,15 +81,6 @@ class DraftHistoryViewController: UIViewController, UITableViewDelegate, UITable
         cell.nameLabel.text = player.name
         cell.teamLabel.text = "Pick \(adjRow + 1)"
         
-        if (player.image != nil && !player.image.isEmpty) {
-            if let url = NSURL(string: player.image) {
-                cell.playerImage.sd_setImageWithURL(url)
-            } else {
-                cell.playerImage = UIImageView()
-            }
-        } else {
-            cell.playerImage = UIImageView()
-        }
         
         return cell
     }

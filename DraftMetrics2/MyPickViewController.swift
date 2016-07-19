@@ -164,17 +164,6 @@ class MyPickViewController: UIViewController, UITableViewDataSource {
         cell.selectButton!.tag = indexPath.row
         
         cell.nameLabel.text = player.name
-        
-        if (player.image != nil && !player.image.isEmpty) {
-            if let url = NSURL(string: player.image) {
-                cell.playerImage.sd_setImageWithURL(url)
-            } else {
-                cell.playerImage = UIImageView()
-            }
-        } else {
-            cell.playerImage = UIImageView()
-        }
-        
         var chanceOfAvailability = round(100.0*fantasy.getChanceOfAvailability(player, Int32(roundToDisplay)));
         var chanceOfBest = round(100.0*fantasy.getChanceOfBestAvailable(player, Int32(roundToDisplay)));
         

@@ -104,17 +104,6 @@ class MainPageViewController: UIViewController, UITableViewDataSource, UITextFie
         
         cell.nameLabel.text = player.name
         cell.teamLabel.text = player.team
-        
-        if (player.image != nil && !player.image.isEmpty) {
-            if let url = NSURL(string: player.image) {
-                cell.playerImage.sd_setImageWithURL(url)
-            } else {
-                cell.playerImage = UIImageView()
-            }
-        } else {
-            cell.playerImage = UIImageView()
-        }
-        
         return cell
     }
     

@@ -141,28 +141,18 @@
                                                         <action selector="onSelectButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="fbY-o3-gGP"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Is-ww-8fB">
-                                                    <rect key="frame" x="8" y="5" width="70" height="70"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="7H3-vZ-dVl"/>
-                                                        <constraint firstAttribute="height" constant="70" id="rhb-5x-oFb"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="eoP-WC-Uly" firstAttribute="top" secondItem="mHD-9M-Hhz" secondAttribute="topMargin" id="3mN-5E-02U"/>
-                                                <constraint firstItem="0Is-ww-8fB" firstAttribute="centerY" secondItem="mHD-9M-Hhz" secondAttribute="centerY" id="6Py-zx-f3v"/>
-                                                <constraint firstItem="eoP-WC-Uly" firstAttribute="leading" secondItem="0Is-ww-8fB" secondAttribute="trailing" constant="8" id="DsX-jt-ITb"/>
-                                                <constraint firstItem="0Is-ww-8fB" firstAttribute="leading" secondItem="mHD-9M-Hhz" secondAttribute="leadingMargin" id="W5r-vU-6DC"/>
+                                                <constraint firstItem="eoP-WC-Uly" firstAttribute="leading" secondItem="mHD-9M-Hhz" secondAttribute="leadingMargin" constant="8" id="aIB-o1-iLI"/>
                                                 <constraint firstItem="EAn-ZF-Ndz" firstAttribute="centerY" secondItem="mHD-9M-Hhz" secondAttribute="centerY" id="fO4-02-sQW"/>
                                                 <constraint firstItem="IoK-Hc-sms" firstAttribute="top" secondItem="eoP-WC-Uly" secondAttribute="bottom" constant="8" id="hmp-Oe-Xgj"/>
+                                                <constraint firstItem="IoK-Hc-sms" firstAttribute="leading" secondItem="mHD-9M-Hhz" secondAttribute="leadingMargin" constant="8" id="nE3-j4-8LS"/>
                                                 <constraint firstItem="EAn-ZF-Ndz" firstAttribute="trailing" secondItem="mHD-9M-Hhz" secondAttribute="trailingMargin" constant="-8" id="qE6-ij-Zby"/>
-                                                <constraint firstItem="IoK-Hc-sms" firstAttribute="leading" secondItem="0Is-ww-8fB" secondAttribute="trailing" constant="8" id="uRu-eO-YHo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="eoP-WC-Uly" id="FKZ-lm-V9O"/>
-                                            <outlet property="playerImage" destination="0Is-ww-8fB" id="YvU-eC-NWQ"/>
                                             <outlet property="selectButton" destination="EAn-ZF-Ndz" id="uHi-YJ-bnr"/>
                                             <outlet property="teamLabel" destination="IoK-Hc-sms" id="A5M-x2-dr9"/>
                                         </connections>
@@ -273,28 +263,18 @@
                                                         <action selector="onSelectButtonTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WXV-SE-Uaj"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sEX-si-7dJ">
-                                                    <rect key="frame" x="8" y="5" width="70" height="70"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="Icn-vs-CDp"/>
-                                                        <constraint firstAttribute="width" constant="70" id="QI3-RR-lyd"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="50W-Fm-wxz" firstAttribute="leading" secondItem="QGq-d5-Opu" secondAttribute="leadingMargin" constant="8" id="0lg-hd-a0v"/>
                                                 <constraint firstItem="50W-Fm-wxz" firstAttribute="top" secondItem="QGq-d5-Opu" secondAttribute="topMargin" id="1Y3-vN-GoR"/>
-                                                <constraint firstItem="50W-Fm-wxz" firstAttribute="leading" secondItem="sEX-si-7dJ" secondAttribute="trailing" constant="8" id="26B-fZ-i0x"/>
                                                 <constraint firstItem="uGB-N5-n7s" firstAttribute="trailing" secondItem="QGq-d5-Opu" secondAttribute="trailingMargin" constant="-8" id="2mk-wL-Dc0"/>
                                                 <constraint firstItem="1Ok-zE-caf" firstAttribute="top" secondItem="50W-Fm-wxz" secondAttribute="bottom" constant="8" id="4h7-Hu-8h4"/>
                                                 <constraint firstItem="uGB-N5-n7s" firstAttribute="centerY" secondItem="QGq-d5-Opu" secondAttribute="centerY" id="8cP-aJ-iRD"/>
-                                                <constraint firstItem="sEX-si-7dJ" firstAttribute="centerY" secondItem="QGq-d5-Opu" secondAttribute="centerY" id="9rS-9x-jwg"/>
-                                                <constraint firstItem="sEX-si-7dJ" firstAttribute="leading" secondItem="QGq-d5-Opu" secondAttribute="leadingMargin" id="Oa9-ye-XV6"/>
-                                                <constraint firstItem="1Ok-zE-caf" firstAttribute="leading" secondItem="sEX-si-7dJ" secondAttribute="trailing" constant="8" id="nzl-cg-9id"/>
+                                                <constraint firstItem="1Ok-zE-caf" firstAttribute="leading" secondItem="QGq-d5-Opu" secondAttribute="leadingMargin" constant="8" id="svK-Rx-Nmd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="50W-Fm-wxz" id="z5Q-Ks-OSf"/>
-                                            <outlet property="playerImage" destination="sEX-si-7dJ" id="4bJ-U9-Xe9"/>
                                             <outlet property="selectButton" destination="uGB-N5-n7s" id="rur-nF-gGB"/>
                                             <outlet property="teamLabel" destination="1Ok-zE-caf" id="iB4-x6-4jV"/>
                                         </connections>
@@ -358,26 +338,16 @@
                                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i9y-rU-uFn">
-                                                    <rect key="frame" x="8" y="5" width="70" height="70"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="70" id="2US-qt-KiA"/>
-                                                        <constraint firstAttribute="width" constant="70" id="K38-g6-iGW"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eFn-8t-HQO" firstAttribute="leading" secondItem="i9y-rU-uFn" secondAttribute="trailing" constant="8" id="5BZ-DH-kAc"/>
-                                                <constraint firstItem="JF4-3M-g1w" firstAttribute="leading" secondItem="i9y-rU-uFn" secondAttribute="trailing" constant="8" id="DHh-eu-vfb"/>
-                                                <constraint firstItem="i9y-rU-uFn" firstAttribute="leading" secondItem="3bs-xh-bEQ" secondAttribute="leadingMargin" id="Fiz-1J-XOf"/>
+                                                <constraint firstItem="JF4-3M-g1w" firstAttribute="leading" secondItem="3bs-xh-bEQ" secondAttribute="leadingMargin" constant="8" id="L3i-zD-u0n"/>
                                                 <constraint firstItem="JF4-3M-g1w" firstAttribute="top" secondItem="3bs-xh-bEQ" secondAttribute="topMargin" id="UI6-pm-TYH"/>
-                                                <constraint firstItem="i9y-rU-uFn" firstAttribute="centerY" secondItem="3bs-xh-bEQ" secondAttribute="centerY" id="Vkn-Ov-fBq"/>
                                                 <constraint firstItem="eFn-8t-HQO" firstAttribute="top" secondItem="JF4-3M-g1w" secondAttribute="bottom" constant="8" id="Vnn-ti-Kl1"/>
+                                                <constraint firstItem="eFn-8t-HQO" firstAttribute="leading" secondItem="3bs-xh-bEQ" secondAttribute="leadingMargin" constant="8" id="mnn-zv-wq1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="JF4-3M-g1w" id="aoY-cV-ltR"/>
-                                            <outlet property="playerImage" destination="i9y-rU-uFn" id="lWU-DI-gWG"/>
                                             <outlet property="teamLabel" destination="eFn-8t-HQO" id="3P8-bE-XaT"/>
                                         </connections>
                                     </tableViewCell>
