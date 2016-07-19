@@ -97,7 +97,6 @@ static float EPSILON = 1E-14;
     [self initializeRosters];
     players = [NSMutableArray array];
     PlayerIDs = [NSMutableDictionary dictionary];
-    [self loadImages];
     [self loadMainInfo];
     //[self loadAdjustedPlayers];
 }
@@ -316,21 +315,6 @@ static float EPSILON = 1E-14;
         int playerID = [[PlayerIDs objectForKey:playerName] intValue];
         Player *p = players[playerID];
         p.points += ptsAdj;
-    }
-}
-
--(void) loadImages {
-    playerImages = [NSMutableDictionary new];
-    NSData *imageJSON = [self getDataOfUserFile:@"players" :@"json"];
-    if(imageJSON) {
-        NSError *error;
-        id data = [NSJSONSerialization JSONObjectWithData:imageJSON options:0 error:&error];
-        if(!error) {
-            NSArray *jsonPlayerImages =  data[@"body"][@"players"];
-            for(NSDictionary *jsonPlayer in jsonPlayerImages) {
-                [playerImages setObject:jsonPlayer[@"photo"] forKey:[self removeSpecialCharacters:jsonPlayer[@"fullname"]]];
-            }
-        }
     }
 }
 
@@ -770,7 +754,6 @@ static float EPSILON = 1E-14;
 -(void) saveFilesToDocuments {
     [self saveFileToDocuments:@"http://d214mfsab.org/projections.csv" :@"projections" :@"csv"];
     [self saveFileToDocuments:@"http://d214mfsab.org/stdev.csv" :@"stdev" :@"csv"];
-    [self saveFileToDocuments:@"http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json" : @"players":@"json"];
     NSString* updatedProjections = [self getFirstLineOfURL:@"http://d214mfsab.org/updatedProjections.html"];
     if ([updatedProjections isEqualToString: @"1"]) {
         [userDefaults setObject:@"1" forKey:@"updatedProjections2"];
